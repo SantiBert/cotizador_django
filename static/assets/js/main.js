@@ -38,21 +38,26 @@ ws2.onclose = function () {
 
 function GetResult(price, percent) {
     // realizar el calculo
-    //Recordar chequear por la moneda seleccionada    
+    //Recordar chequear por la moneda seleccionada
     if (coinType == "ARS") {
         let conversion = price * usd_value
         let result = conversion * (1 + percent);
         console.log(conversion);
         return result;
+
+
     }
-}
+};
 
 function NewMessage(data) {
     if (data.channel == channelName) {
         if (data.event == "trade") {
             let sellValue = GetResult(data.data.price, sellPercent);
             let buyValue = GetResult(data.data.price, buyPercent);
+            document.getElementById("101-c").value = sellValue;
+            document.getElementById("101-v").value = buyValue;
+    
             //this.state.buyValue = sellValue;
             //this.state.buyValue = sellValue;
         }
-    }
+    }};
