@@ -83,102 +83,25 @@
               <h3>Plain Cards</h3>
             </div>
             <div class="row">
+              
+              {% for key, name in titlesList.items %}
               <div class="col-lg-4 col-md-6">
                 <div class="card card-nav-tabs text-center">
-                  <div id="btc" class="card-header card-header-primary">
-                    BTC
+                  <div id="{{key}}" class="card-header card-header-primary">
                   </div>
                   <div class="card-body">
                     <h4 class="card-title">Compra</h4>
-                    <a id="101-c" href="#0" class="btn btn-primary">$$</a>
+                    <p id="{{key}}-c" href="#0" class="btn btn-primary"></a>
                     <h4 class="card-title">Venta</h4>
-                    <a id="101-v"href="#0" class="btn btn-primary">$$</a>
+                    <p id="{{key}}-v"href="#0" class="btn btn-primary"></a>
                   </div>
                   <div class="card-footer text-muted">
                     aca puede ir algun dato
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="card card-nav-tabs text-center">
-                  <div class="card-header card-header-primary">
-                    Nombre de Criptomoneda
-                  </div>
-                  <div class="card-body">
-                    <h4 class="card-title">Compra</h4>
-                    <a href="#0" class="btn btn-primary">$$</a>
-                    <h4 class="card-title">Venta</h4>
-                    <a href="#0" class="btn btn-primary">$$</a>
-                  </div>
-                  <div class="card-footer text-muted">
-                    aca puede ir algun dato
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="card card-nav-tabs text-center">
-                  <div class="card-header card-header-primary">
-                    Nombre de Criptomoneda
-                  </div>
-                  <div class="card-body">
-                    <h4 class="card-title">Compra</h4>
-                    <a href="#0" class="btn btn-primary">$$</a>
-                    <h4 class="card-title">Venta</h4>
-                    <a href="#0" class="btn btn-primary">$$</a>
-                  </div>
-                  <div class="card-footer text-muted">
-                    aca puede ir algun dato
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="card card-nav-tabs text-center">
-                  <div class="card-header card-header-primary">
-                    Nombre de Criptomoneda
-                  </div>
-                  <div class="card-body">
-                    <h4 class="card-title">Compra</h4>
-                    <a href="#0" class="btn btn-primary">$$</a>
-                    <h4 class="card-title">Venta</h4>
-                    <a href="#0" class="btn btn-primary">$$</a>
-                  </div>
-                  <div class="card-footer text-muted">
-                    aca puede ir algun dato
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="card card-nav-tabs text-center">
-                  <div class="card-header card-header-primary">
-                    Nombre de Criptomoneda
-                  </div>
-                  <div class="card-body">
-                    <h4 class="card-title">Compra</h4>
-                    <a href="#0" class="btn btn-primary">$$</a>
-                    <h4 class="card-title">Venta</h4>
-                    <a href="#0" class="btn btn-primary">$$</a>
-                  </div>
-                  <div class="card-footer text-muted">
-                    aca puede ir algun dato
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="card card-nav-tabs text-center">
-                  <div class="card-header card-header-primary">
-                    Nombre de Criptomoneda
-                  </div>
-                  <div class="card-body">
-                    <h4 class="card-title">Compra</h4>
-                    <a href="#0" class="btn btn-primary">$$</a>
-                    <h4 class="card-title">Venta</h4>
-                    <a href="#0" class="btn btn-primary">$$</a>
-                  </div>
-                  <div class="card-footer text-muted">
-                    aca puede ir algun dato
-                  </div>
-                </div>
-              </div>
+              {% endfor %}
+
             </div>
           </div>
         </div>

@@ -1,30 +1,27 @@
-const WebSocket = require('ws');
-
 var usd_value = 153;
 var eur_value = 180;
+
+var coinList = ["btc","eth","ltc","bch"]
 
 var buyPercent = 0.35;
 var sellPercent = 0.31;
 
-var cryptoCoin = "btc"
-var channelName = "live_trades_" + cryptoCoin + "usd";
-
 var coinType = "ARS";
-
 
 let ws2 = new WebSocket("wss://ws.bitstamp.net");
 
-let channelData = {
-    event: "bts:subscribe",
-    data: {
-        channel: channelName,
-    }
-};
-
-
 //enviar datos al websocket, suscribo al channel
 ws2.onopen = function () {
-    ws2.send(JSON.stringify(channelData));
+    coinList.forEach(function(element) {
+        let channelName = "live_trades_" + element + "usd";
+        let channelData = {
+            event: "bts:subscribe",
+            data: {
+                channel: channelName,
+            }
+        };
+        ws2.send(JSON.stringify(channelData))
+      }); 
 };
 
 ws2.onmessage = function (evt) {
@@ -50,14 +47,24 @@ function GetResult(price, percent) {
 };
 
 function NewMessage(data) {
-    if (data.channel == channelName) {
-        if (data.event == "trade") {
-            let sellValue = GetResult(data.data.price, sellPercent);
-            let buyValue = GetResult(data.data.price, buyPercent);
-            document.getElementById("101-c").value = sellValue;
-            document.getElementById("101-v").value = buyValue;
-    
-            //this.state.buyValue = sellValue;
-            //this.state.buyValue = sellValue;
+    coinList.forEach(function(element) {
+        let channelName = "live_trades_" + element + "usd";
+        if (data.channel == channelName) {
+            if (data.event == "trade") {
+                let sellValue = GetResult(data.data.price, sellPercent);
+                let buyValue = GetResult(data.data.price, buyPercent);
+                let sellElement = element+"-c";
+                let buyElement = element+"-v";
+
+                console.log(sellElement);
+                console.log(buyElement);
+
+                document.getElementById(sellElement).innerHTML = sellValue;
+                document.getElementById(buyElement).innerHTML = buyValue;
+        
+                //this.state.buyValue = sellValue;
+                //this.state.buyValue = sellValue;
+            }
         }
-    }};
+    }); 
+};
