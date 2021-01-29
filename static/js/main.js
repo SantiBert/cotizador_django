@@ -56,3 +56,4 @@ function NewMessage(data) {
             //this.state.buyValue = sellValue;
         }
     }
+}
