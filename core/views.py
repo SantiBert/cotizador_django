@@ -5,4 +5,10 @@ from django.shortcuts import render
 
 
 def IndexView(request):
-    return render(request, 'index.html')
+    cryptoDict = {  "btc": ("Bitcoin", "fa fa-btc"),
+                    "eth": ("Ethereum", "fab fa-ethereum"),
+                    "ltc": ("Litecoin", "fa fa-btc"),
+                    "bch": ("Bitcoin Cash", "fa fa-btc")}
+
+    context = { "cryptoDict": cryptoDict}
+    return render(request, 'index.html', context)
