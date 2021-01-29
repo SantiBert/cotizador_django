@@ -14,12 +14,9 @@
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-    crossorigin="anonymous" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
-  <link href="{% static './assets/css/material-kit.css'%}?v=2.0.7" rel="stylesheet" />
+  <link href="{% static './assets/css/material-kit.min.css'%}?v=2.2.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{% static './assets/demo/demo.css'%}" rel="stylesheet" />
 </head>
@@ -30,7 +27,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit-pro/index.html">
-          Material Kit PRO </a>
+          Logo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
           aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
@@ -42,19 +39,19 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="active nav-item">
-            <a href="#pablo" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="material-icons">explore</i>
               Discover
             </a>
           </li>
           <li class="nav-item">
-            <a href="#pablo" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="material-icons">account_circle</i>
               Profile
             </a>
           </li>
           <li class="nav-item">
-            <a href="#pablo" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="material-icons">settings</i>
               Settings
             </a>
@@ -86,9 +83,11 @@
               <h3>Criptomonedas</h3>
             </div>
             <div class="container">
-              <button id="ARS" class="btn btn-info">ARGS</button>
-              <button id="USD" class="btn btn-info">USD</button>
-              <button id="EUR" class="btn btn-info">EUR</button>
+              <div id='divisa'>
+                <button onclick="changeCoin(id);" id="ARS" class="btn btn-info">ARGS</button>
+                <button onclick="changeCoin(id);" id="USD" class="btn btn-info">USD</button>
+                <button onclick="changeCoin(id);" id="EUR" class="btn btn-info">EUR</button>
+              </div>
             </div>
             <div class="row">
               {% for key, data in cryptoDict.items %}
@@ -107,7 +106,27 @@
               </div>
               {% endfor %}
             </div>
-            <!--cerparasion-->
+            <div class="social-line social-line-white text-center">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-md-12">
+                    <h4 class="title">Contactanos</h4>
+                  </div>
+                  <a href="#" class="btn btn-linkedin btn-round">
+                    <i class="fa fa-telegram"></i> Persona 1
+                  </a>
+                  <a href="#" class="btn btn-linkedin btn-round">
+                    <i class="fa fa-telegram"></i> Persona 2
+                  </a>
+                  <a href="#" class="btn btn-linkedin btn-round">
+                    <i class="fa fa-telegram"></i> Persona 3
+                  </a>
+                  <a href="#" class="btn btn-linkedin btn-round">
+                    <i class="fa fa-telegram"></i> Persona 4
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -118,24 +137,24 @@
       <nav class="float-left">
         <ul>
           <li>
-            <a href="#">
-              Link 1
-            </a>
+            <button class="btn btn-just-icon  btn-facebook">
+              <i class="fa fa-facebook"> </i>
+            </button>
           </li>
           <li>
-            <a href="#">
-              Link 2
-            </a>
+            <button class="btn btn-just-icon  btn-dribbble">
+              <i class="fa fa-instagram"> </i>
+            </button>
           </li>
           <li>
-            <a href="#">
-              Link 3
-            </a>
+            <button class="btn btn-just-icon btn-twitter">
+              <i class="fa fa-twitter"></i>
+            </button>
           </li>
           <li>
-            <a href="#">
-              Link 4
-            </a>
+            <button class="btn btn-just-icon  btn-linkedin">
+              <i class="fa fa-telegram"></i>
+            </button>
           </li>
         </ul>
       </nav>
