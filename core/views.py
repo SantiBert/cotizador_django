@@ -5,16 +5,10 @@ from django.shortcuts import render
 
 
 def IndexView(request):
-    titlesList = {  "btc": "Bitcoin",
-                    "eth":"Ethereum",
-                    "ltc":"Litecoin",
-                    "bch":"Bitcoin Cash"}
+    cryptoDict = {  "btc": ("Bitcoin", "fa fa-btc"),
+                    "eth": ("Ethereum", "fab fa-ethereum"),
+                    "ltc": ("Litecoin", "fa fa-btc"),
+                    "bch": ("Bitcoin Cash", "fa fa-btc")}
 
-    iconList = {    "btc": "fab fa-btc",
-                    "eth": "fab fa-ethereum",
-                    "ltc": "fab fa-btc",
-                    "bch": "fa fa-btc"}
-
-    context = { "titlesList": titlesList,
-                "iconList": iconList    }
+    context = { "cryptoDict": cryptoDict}
     return render(request, 'index.html', context)
