@@ -21,7 +21,10 @@
   <!-- CSS Files -->
   <link href="{% static './assets/css/material-kit.min.css'%}?v=2.2.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{% static './assets/demo/demo.css'%}" rel="stylesheet" />
+  <link href="{% static './assets/css/counter.css'%}" rel="stylesheet" />
+  <style>
+
+  </style>
 </head>
 
 <body class="landing-page sidebar-collapse" onload="GetData()" >
@@ -97,7 +100,8 @@
               <div class="col-lg-4 col-md-6">
                 <div class="card card-nav-tabs text-center">
                   <div id="{{key}}" class="card-header card-header-white">
-                    <p style="color:#{{ data.2 }}!important; font-size: 150%"> <i class="{{ data.1 }}"></i> {{data.0}}</p>
+                    <p style="color:#{{ data.2 }}!important; font-size: 150%; font-family: "Lucida Console",
+                     "Courier New", monospace;"> <i class="{{ data.1 }}"></i> {{data.0}}</p>
                   </div>
                   <div class="card-body">
                     <h4 class="card-title">Compra</h4>
