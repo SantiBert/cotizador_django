@@ -83,7 +83,7 @@
         <div class="cards">
           <div class="container">
             <div class="title">
-              <h3>Criptomonedas</h3>
+              <h2>Criptomonedas</h2>
             </div>
             <div class="container">
               <div id='divisa'>
@@ -96,14 +96,14 @@
               {% for key, data in cryptoDict.items %}
               <div class="col-lg-4 col-md-6">
                 <div class="card card-nav-tabs text-center">
-                  <div id="{{key}}" class="card-header card-header-primary">
-                    <i class="{{ data.1 }}"></i> {{data.0}}
+                  <div id="{{key}}" class="card-header card-header-white">
+                    <p style="color:#{{ data.2 }}!important; font-size: 150%"> <i class="{{ data.1 }}"></i> {{data.0}}</p>
                   </div>
                   <div class="card-body">
                     <h4 class="card-title">Compra</h4>
-                    <p id="{{key}}-c" class="btn btn-primary btn-lg"></p>
+                    <p id="{{key}}-c" class="btn btn-danger btn-lg"></p>
                     <h4 class="card-title">Venta</h4>
-                    <p id="{{key}}-v" class="btn btn-primary btn-lg"></p>
+                    <p id="{{key}}-v" class="btn btn-success btn-lg"></p>
                   </div>
                 </div>
               </div>

@@ -5,12 +5,12 @@ from django.shortcuts import render
 
 
 def IndexView(request):
-    cryptoDict = {"btc": ("Bitcoin", "fa fa-btc"),
-                  "eth": ("Ethereum", "fab fa-ethereum"),
-                  "ltc": ("Litecoin", "fa fa-btc"),
-                  "bch": ("Bitcoin Cash", "fa fa-btc"),
-                  "dai": ("DAI", "fa fa-btc"),
-                  "usdt": ("Tether (USDT)", "fa fa-btc"),
+    cryptoDict = {"btc": ("Bitcoin", "fa fa-btc","f7931a"),
+                  "eth": ("Ethereum", "fab fa-ethereum","627eea"),
+                  "ltc": ("Litecoin", "fa fa-btc", "bfbbbb"),
+                  "bch": ("Bitcoin Cash", "fa fa-btc", "50ae94"),
+                  "dai": ("DAI", "fa fa-btc", "fab221"),
+                  "usdt": ("Tether (USDT)", "fa fa-btc","8dc351"),
                   }
 
     context = {"cryptoDict": cryptoDict}
