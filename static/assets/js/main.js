@@ -1,14 +1,51 @@
+// Primer elemento de la lista es compra y el segundo venta
+var crypto_prices={ 
+    "btc":0, 
+    "eth":0, 
+    "ltc":0,
+    "bch":0,
+};
+
 var usd_value = 153;
 var eur_value = 180;
 
 var coinList = ["btc", "eth", "ltc", "bch"]
+var stupidCoins = ["dai", "usdt"]
 
 var buyPercent = 0.35;
 var sellPercent = 0.31;
 
 var coinType = "ARS";
 
+function changeCoin(coin) {
+    coinType = coin;
+
+    coinList.forEach(function (element){
+        price = crypto_prices[element];
+        let buyPrice = GetResult(price, buyPercent);
+        let sellPrice = GetResult(price, sellPercent);
+        ChangeData(element, sellPrice, buyPrice);
+    });
+};
+
 let ws2 = new WebSocket("wss://ws.bitstamp.net");
+
+function GetData() {
+    coinList.forEach(function (element) {
+        $.ajax({
+            type: 'GET',
+            url: 'https://www.bitstamp.net/api/v2/ticker/' + element + 'usd/',
+            dataType: "JSON",
+            success: function (data) {
+                let price = data.last;
+                crypto_prices[element] = parseFloat(price);
+                let buyPrice = GetResult(price, buyPercent);
+                let sellPrice = GetResult(price, sellPercent);
+                ChangeData(element, sellPrice, buyPrice);
+            },
+        });
+    });
+};
 
 //enviar datos al websocket, suscribo al channel
 ws2.onopen = function () {
@@ -23,8 +60,8 @@ ws2.onopen = function () {
         ws2.send(JSON.stringify(channelData))
     });
 };
-
 ws2.onmessage = function (evt) {
+
     response = JSON.parse(evt.data);
     NewMessage(response);
 };
@@ -32,32 +69,6 @@ ws2.onmessage = function (evt) {
 ws2.onclose = function () {
     console.log("Websocket connection closed");
 };
-/*
-function changeCoin(coin) {
-    coin = document.getElementById('valorId');
-    coinType = coin;
-}
-*/
-
-
-let coinUsd = document.getElementById("USD");
-let coinArs = document.getElementById("ARS");
-let coinEur = document.getElementById("EUR");
-
-coinUsd.addEventListener("click", function () {
-    coinType = "USD";
-    console.log(coinType);
-});
-
-coinArs.addEventListener("click", function () {
-    coinType = "ARS";
-    console.log(coinType);
-});
-
-coinEur.addEventListener("click", function () {
-    coinType = "EUR";
-    console.log(coinType);
-});
 
 
 function GetResult(price, percent) {
@@ -86,18 +97,27 @@ function NewMessage(data) {
         let channelName = "live_trades_" + element + "usd";
         if (data.channel == channelName) {
             if (data.event == "trade") {
+                console.log(element);
+                console.log(data.data);
+                crypto_prices[element] = data.data.price;
                 let sellValue = GetResult(data.data.price, sellPercent);
                 let buyValue = GetResult(data.data.price, buyPercent);
-                let sellElement = element + "-c";
-                let buyElement = element + "-v";
-
-
-                document.getElementById(sellElement).innerHTML = sellValue.toFixed(2);
-                document.getElementById(buyElement).innerHTML = buyValue.toFixed(2);
-
-                //this.state.buyValue = sellValue;
-                //this.state.buyValue = sellValue;
+                ChangeData(element, sellValue, buyValue);
             }
         }
     });
 };
+
+function ChangeData(coinName, sellValue, buyValue){
+    let sellElement = coinName + "-c";
+    let buyElement = coinName + "-v";
+    if (coinName == "ltc"){
+        console.log(sellValue);
+        console.log(coinName);
+    
+
+    }
+    
+    document.getElementById(sellElement).innerHTML = sellValue.toFixed(2);
+    document.getElementById(buyElement).innerHTML = buyValue.toFixed(2);
+}

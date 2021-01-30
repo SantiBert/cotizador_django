@@ -12,6 +12,9 @@
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
   <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
@@ -21,7 +24,7 @@
   <link href="{% static './assets/demo/demo.css'%}" rel="stylesheet" />
 </head>
 
-<body class="landing-page sidebar-collapse">
+<body class="landing-page sidebar-collapse" onload="GetData()" >
   <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100"
     id="sectionsNav">
     <div class="container">
@@ -84,9 +87,9 @@
             </div>
             <div class="container">
               <div id='divisa'>
-                <button id="ARS" class="btn btn-info">ARGS</button>
-                <button id="USD" class="btn btn-info">USD</button>
-                <button id="EUR" class="btn btn-info">EUR</button>
+                <button onclick="changeCoin('ARS')" class="btn btn-info">ARGS</button>
+                <button onclick="changeCoin('USD')" class="btn btn-info">USD</button>
+                <button onclick="changeCoin('EUR')" class="btn btn-info">EUR</button>
               </div>
             </div>
             <div class="row">
