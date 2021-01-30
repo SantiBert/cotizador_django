@@ -39,12 +39,44 @@ function changeCoin(coin) {
 }
 */
 
+
+let coinUsd = document.getElementById("USD");
+let coinArs = document.getElementById("ARS");
+let coinEur = document.getElementById("EUR");
+
+coinUsd.addEventListener("click", function () {
+    coinType = "USD";
+    console.log(coinType);
+});
+
+coinArs.addEventListener("click", function () {
+    coinType = "ARS";
+    console.log(coinType);
+});
+
+coinEur.addEventListener("click", function () {
+    coinType = "EUR";
+    console.log(coinType);
+});
+
+
 function GetResult(price, percent) {
     // realizar el calculo
     //Recordar chequear por la moneda seleccionada
     if (coinType == "ARS") {
         let conversion = price * usd_value
         let result = conversion * (1 + percent);
+        ;
+        return result;
+    }
+    if (coinType == "EUR") {
+        let conversion = price * eur_value
+        let result = conversion * (1 + percent);
+        ;
+        return result;
+    }
+    else {
+        let result = price;
         return result;
     }
 };

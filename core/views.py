@@ -9,7 +9,7 @@ def IndexView(request):
                   "eth": ("Ethereum", "fab fa-ethereum"),
                   "ltc": ("Litecoin", "fa fa-btc"),
                   "bch": ("Bitcoin Cash", "fa fa-btc"),
-                  "Dai": ("DAI", "fa fa-btc"),
+                  "dai": ("DAI", "fa fa-btc"),
                   "usdt": ("Tether (USDT)", "fa fa-btc"),
                   }
 
