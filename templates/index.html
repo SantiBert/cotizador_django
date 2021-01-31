@@ -105,17 +105,23 @@
                 <div class="row">
                     <div class="col-md-4">
                         <hr class="line-info">
-                        <h1>Criptomonedas
-                        </h1>
+                        <h1>Criptomonedas</h1>
                     </div>
                 </div>
-
                 <div class="row">
-
+                    <div class="container" style="margin-bottom:50px;">
+                        <div class="row justify-content-center p-3">
+                            <div class="col-md-16">
+                                <button onclick="changeCoin('ARS')" class="btn btn-success">ARS</button>
+                                <button onclick="changeCoin('USD')" class="btn btn-warning">USD</button>
+                                <button onclick="changeCoin('EUR')" class="btn btn-neutral">EUR</button>
+                            </div>
+                        </div>
+                    </div>
                     {% for key, data in cryptoDict.items %}
 
                     <div class="col-md-4">
-                        <div id="{{key}}" class="card card-coin card-plain">
+                        <div id="{{key}}" class="card card-coin card-plain" style="margin-bottom:50px;">
                             <div class="card-header">
                                 <br>
                                 <img src="{% static './assets1/img/bitcoin.png'%}" class="img-center img-fluid">
