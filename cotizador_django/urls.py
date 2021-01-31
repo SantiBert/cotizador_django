@@ -7,6 +7,7 @@ from django.contrib import admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView, name="index"),
+    path('2/', views.IndexxView, name="indexx"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,
