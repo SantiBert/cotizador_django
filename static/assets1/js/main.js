@@ -37,6 +37,7 @@ function GetData() {
             url: 'https://www.bitstamp.net/api/v2/ticker/' + element + 'usd/',
             dataType: "JSON",
             success: function (data) {
+                console.log("tito no gano al heroe realms")
                 let price = data.last;
                 crypto_prices[element] = parseFloat(price);
                 let buyPrice = GetResult(price, buyPercent);
@@ -121,14 +122,17 @@ function ChangeData(coinName, sellValue, buyValue) {
         document.getElementById(buyElement).innerHTML = " $ ARS " + buyValue.toFixed(2);
     }
 
-    if (coinType == "EUR") {
+    else if (coinType == "EUR") {
         document.getElementById(sellElement).innerHTML = " € EUR " + sellValue.toFixed(2);
         document.getElementById(buyElement).innerHTML = " € EUR " + buyValue.toFixed(2);
     }
 
-    else {
+    else if (coinType == "USD") {
         document.getElementById(sellElement).innerHTML = " $ USA " + sellValue.toFixed(2);
         document.getElementById(buyElement).innerHTML = " $ USA " + buyValue.toFixed(2);
     }
 
+    else {
+        console.log("Esto no se deberia ver")
+    }
 }
