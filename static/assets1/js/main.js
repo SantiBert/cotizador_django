@@ -86,15 +86,18 @@ function GetResult(price, percent) {
         ;
         return result;
     }
-    if (coinType == "EUR") {
+    else if (coinType == "EUR") {
         let conversion = price * eur_value
         let result = conversion * (1 + percent);
         ;
         return result;
     }
-    else {
+    else if (coinType == "USD") {
         let result = price;
         return result;
+    }
+    else {
+        console.log("algo salio mal en la funcion Getruslt")
     }
 };
 
