@@ -6,7 +6,7 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.IndexView, name="index"),
+    path('', views.IndexView, name="index"),    
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

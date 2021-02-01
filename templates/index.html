@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    {% load static %}
+  {% load static %}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="{% static './assets1/img/apple-icon.png'%}">
@@ -16,12 +17,19 @@
     <!-- Nucleo Icons -->
     <link href="{% static './assets1/css/nucleo-icons.css'%}" rel="stylesheet" />
     <!-- CSS Files -->
-    <link href="{% static './assets1/css/blk-design-system.css'%}?v=1.0.0" rel="stylesheet" />
+    <link href="{% static './assets1/css/blk-design-system-pro.mine209.css'%}?v=1.0.0" rel="stylesheet" />
 </head>
 
-<body class="landing-page" onload="GetData()">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
+<body class="landing-page">
+  <!-- Extra details for Live View on GitHub Pages -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- Navbar -->
+  
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
         <div class="container">
             <div class="navbar-translate">
                 <a class="navbar-brand" href="#" rel="tooltip" data-placement="bottom" target="_blank">
@@ -72,51 +80,54 @@
             </div>
         </div>
     </nav>
-    <!-- End Navbar -->
-    <div class="wrapper">
-        <div id="index" class="page-header">
-            <img src="{% static './assets1/img/blob.png'%}" class="path">
+
+  <!-- End Navbar -->
+  <div class="wrapper">
+    <div class="page-header">
+      <img src="{% static './assets1/img/blob.png'%}" class="path">
             <img src="{% static './assets1/img/path2.png'%}" class="path2">
             <img src="{% static './assets1/img/triunghiuri.png'%}" class="shapes triangle">
             <img src="{% static './assets1/img/waves.png'%}" class="shapes wave">
             <img src="{% static './assets1/img/patrat.png'%}" class="shapes squares">
             <img src="{% static './assets1/img/cercuri.png'%}" class="shapes circle">
-            <div class="content-center">
-                <div class="row row-grid justify-content-between align-items-center text-left">
-                    <div class="col-lg-6 col-md-6">
-                        <h1 class="text-white"> Algo </h1>
-                        <p class="text-white mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam
-                            consequatur
-                            voluptatum dignissimos inventore ullam similique accusantium neque cumque quibusdam! Nostrum
-                            corporis
-                            error dolores similique pariatur! Voluptatum quidem asperiores excepturi deserunt</p>
-                    </div>
-                    <div class="col-lg-4 col-md-5">
-                        <img src="{% static './assets1/img/bitcoin.png'%}" alt="Circle image" class="img-fluid">
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row row-grid justify-content-between align-items-center text-left">
+          <div class="col-lg-6 col-md-6">
+            <h1 class="text-white">Tiitulo              
+            </h1>
+            <p class="text-white mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam consequatur voluptatum dignissimos inventore ullam similique accusantium neque cumque quibusdam! Nostrum corporis error dolores similique pariatur! Voluptatum quidem asperiores excepturi deserunt</p>           
+          </div>
+          <div class="col-lg-4 col-md-5">
+            <img src="{% static './assets1/img/bitcoin.png'%}" alt="Circle image" class="img-fluid">
+          </div>
         </div>
-        <br>
-        <section id="exchange" class="section section-lg section-coins">
+      </div>
+    </div>   
+
+    
+    <section id="exchange" class="section section-lg section-coins">
             <br>
             <img src="{% static './assets1/img/path3.png'%}" class="path">
-            <div class="container">
+            <div class="container">                
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-12">
+                    <div class="typography-line">           
                         <hr class="line-info">
                         <h1>Criptomonedas</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="container" style="margin-bottom:50px;">
+                    </div>   
+                </div>                 
+                    <div class="container" style="margin-bottom:70px;">
                         <div class="row justify-content-center p-3">
-                            <div class="col-md-16">
-                                <button onclick="changeCoin('ARS')" class="btn btn-success"
-                                    style="z-index: 20;">ARS</button>
-                                <button onclick="changeCoin('USD')" class="btn btn-warning"
-                                    style="z-index: 20;">USD</button>
-                                <button onclick="changeCoin('EUR')" class="btn btn-neutral"
+                            <div class="col-md-3">
+                                <button onclick="changeCoin('ARS')" class="btn btn-success btn-lg"
+                                    style="z-index: 20;">ARS</button>                                
+                            </div>
+                            <div class="col-md-3">                                
+                                <button onclick="changeCoin('USD')" class="btn btn-warning btn-lg"
+                                    style="z-index: 20;">USD</button>                                
+                            </div>
+                            <div class="col-md-3">                                
+                                <button onclick="changeCoin('EUR')" class="btn btn-neutral btn-lg"
                                     style="z-index: 20;">EUR</button>
                             </div>
                         </div>
@@ -132,29 +143,26 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
-                                        <h4 class="text-uppercase">{{data.0}}</h4>
-                                        <span>Compra</span>
+                                        <h4 class="text-uppercase">{{data.0}}</h4>                                       
+                                    </div>
+                                    <div class="col-md-6">
+                                     <span>Compra</span>
                                         <hr class="line" style="background-color: #{{ data.2 }};">
                                     </div>
-                                </div>
-                                <div class="card-footer text-center">
-                                    <p id="{{key}}-c" class="btn btn-simple text-white"
-                                        style="background-color: #{{ data.2 }};">
-                                    </p>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 text-center">
+                                    <div class="col-md-6">
                                         <span>Venta</span>
                                         <hr class="line" style="background-color: #{{ data.2 }};">
                                     </div>
-                                </div>
-
-                                <div class="card-footer text-center">
-                                    <p id="{{key}}-v" class="btn btn-simple text-white"
+                                    <div class="col-md-6">
+                                        <p id="{{key}}-c" class="btn btn-simple btn-sm text-white"
                                         style="background-color: #{{ data.2 }};">
                                     </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p id="{{key}}-v" class="btn btn-simple btn-sm text-white"
+                                    style="background-color: #{{ data.2 }};"></p>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -165,61 +173,75 @@
                 </div>
             </div>
         </section>
+
         <div id="contact" class="social-line social-line-white text-center">
             <div class="container">
                 <div class="row justify-content-center p-3">
                     <div class="col-md-12">
                         <h4 class="title">Contactanos</h4>
                     </div>
-                    <button href="#" class="btn btn-info btn-round" type="button">
-                        <i class="tim-icons icon-send"></i> Persona 1
+                    <button href="#" class="btn btn-facebook" type="button">
+                        <i class="fab fa-telegram"></i> Persona 1
                     </button>
-                    <button href="#" class="btn btn-info btn-round" type="button">
-                        <i class="tim-icons icon-send"></i> Persona 2
+                    <button href="#" class="btn btn-facebook" type="button">
+                        <i class="fab fa-telegram"></i> Persona 2
                     </button>
-                    <button href="#" class="btn btn-info btn-round" type="button">
-                        <i class="tim-icons icon-send"></i> Persona 3
+                    <button href="#" class="btn btn-facebook" type="button">
+                        <i class="fab fa-telegram"></i> Persona 3
                     </button>
-                    <button href="#" class="btn btn-info btn-round" type="button">
-                        <i class="tim-icons icon-send"></i> Persona 4
+                    <button href="#" class="btn btn-facebook" type="button">
+                        <i class="fab fa-telegram"></i> Persona 4
+                    </button>
+                </div>
+                <div class="row justify-content-center">                    
+                    <button href="#" class="btn btn-success" type="button">
+                        <i class="fab fa-whatsapp"></i> Persona 1
+                    </button>
+                    <button href="#" class="btn btn-success" type="button">
+                        <i class="fab fa-whatsapp"></i> Persona 2
+                    </button>
+                    <button href="#" class="btn btn-success" type="button">
+                        <i class="fab fa-whatsapp"></i> Persona 3
+                    </button>
+                    <button href="#" class="btn btn-success" type="button">
+                        <i class="fab fa-whatsapp"></i> Persona 4
                     </button>
                 </div>
             </div>
         </div>
-        <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 text-lg-center btn-wrapper">
-                        <a id="twitter" class="btn btn-icon btn-twitter btn-round btn-lg" data-toggle="tooltip"
-                            data-original-title="Tweet!">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a id="facebook" class="btn btn-icon btn-facebook btn-round btn-lg" data-toggle="tooltip"
-                            data-original-title="Comparte!">
-                            <i class="fab fa-facebook-square"></i>
-                        </a>
-                        <a target="_blank" href="#" class="btn btn-icon btn-dribbble btn-round btn-lg"
-                            data-toggle="tooltip" data-original-title="Siguenos">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a target="_blank" href="#" class="btn btn-icon btn-linkendin btn-round btn-lg"
-                            data-toggle="tooltip" data-original-title="Escrivenos">
-                            <i class="fab fa-telegram"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="copyright float-right">
-                    &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>, Usaurios-Dev<i class="material-icons">hear</i>
-                </div>
+    
+    <footer class="footer">
+      <div class="container">
+        <div class="row">          
+          <div class="col-md-3">
+            <h3 class="title">Redes sociales:</h3>
+            <div class="btn-wrapper profile text-left">
+              <a target="_blank" href="#" class="btn btn-icon btn-neutral btn-round btn-simple" data-toggle="tooltip" data-original-title="Siguenos">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a target="_blank" href="#" class="btn btn-icon btn-neutral btn-round btn-simple" data-toggle="tooltip" data-original-title="Like en Face">
+                <i class="fab fa-facebook-square"></i>
+              </a>              
+              <a target="_blank" href="#" class="btn btn-icon btn-neutral  btn-round btn-simple" data-toggle="tooltip" data-original-title="Escribenos">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <a target="_blank" href="#" class="btn btn-icon btn-neutral  btn-round btn-simple" data-toggle="tooltip" data-original-title="Escribenos">
+                <i class="fab fa-telegram"></i>
+              </a>
             </div>
-    </div>
+          </div>
+        </div>       
+      </div>
+      <div class="copyright float-right">
+        &copy;
+        <script>
+            document.write(new Date().getFullYear())
+        </script>, Usaurios-Dev
     </div>
     </footer>
-    </div>
-    <!--   Core JS Files   -->
+  </div>
+  <!--   Core JS Files   -->
+  <!--   Core JS Files   -->
     <script src="{% static './assets1/js/core/jquery.min.js'%}" type="text/javascript"></script>
     <script src="{% static './assets1/js/core/popper.min.js'%}" type="text/javascript"></script>
     <script src="{% static './assets1/js/core/bootstrap.min.js'%}" type="text/javascript"></script>
@@ -233,6 +255,17 @@
     <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
     <script src="{% static './assets1/js/plugins/moment.min.js'%}"></script>
     <script src="{% static './assets1/js/plugins/bootstrap-datetimepicker.js'%}" type="text/javascript"></script>
+    <script src="{% static './assets/js/plugins/slick.js'%}" type="text/javascript"></script>
+    <!--  Plugin for the blob animation -->
+    <script src="{% static './assets/js/plugins/anime.min.js'%}" type="text/javascript"></script>
+    <!-- Chart JS -->
+    <script src="{% static './assets/js/plugins/chartjs.min.js'%}"></script>
+    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+    <script src="{% static './assets/js/plugins/moment.min.js'%}"></script>
+    <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+    <script src="{% static './assets/js/plugins/bootstrap-tagsinput.js'%}"></script>
+    <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+    <script src="{% static './assets/js/plugins/bootstrap-selectpicker.js'%}" type="text/javascript"></script>
     <!-- Black Dashboard DEMO methods, don't include it in your project! -->
     <script src="{% static './assets1/demo/demo.js'%}"></script>
     <!-- Control Center for Black UI Kit: parallax effects, scripts for the example pages etc -->
@@ -245,6 +278,7 @@
             demo.initLandingPageChart();
         });
     </script>
+
 </body>
 
 </html>

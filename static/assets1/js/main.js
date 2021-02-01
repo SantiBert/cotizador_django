@@ -6,8 +6,7 @@ var crypto_prices = {
     "bch": 0,
 };
 
-//var valuesJson = new Request('https://api.bluelytics.com.ar/v2/latest');
-
+//consulta de valor de dolar y euro
 fetch('https://api.bluelytics.com.ar/v2/latest')
     .then(response => response.json())
     .then(data => {
