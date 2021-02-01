@@ -6,8 +6,15 @@ var crypto_prices = {
     "bch": 0,
 };
 
-var usd_value = 153;
-var eur_value = 180;
+//var valuesJson = new Request('https://api.bluelytics.com.ar/v2/latest');
+
+fetch('https://api.bluelytics.com.ar/v2/latest')
+    .then(response => response.json())
+    .then(data => {
+        usd_value = data.blue.value_avg;
+        eur_value = data.blue_euro.value_avg;
+    });
+
 
 var coinList = ["btc", "eth", "ltc", "bch"]
 var stupidCoins = ["dai", "usdt"]
@@ -37,7 +44,6 @@ function GetData() {
             url: 'https://www.bitstamp.net/api/v2/ticker/' + element + 'usd/',
             dataType: "JSON",
             success: function (data) {
-                console.log("tito no gano al heroe realms")
                 let price = data.last;
                 crypto_prices[element] = parseFloat(price);
                 let buyPrice = GetResult(price, buyPercent);
