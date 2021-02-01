@@ -1,13 +1,20 @@
 // Primer elemento de la lista es compra y el segundo venta
-var crypto_prices={ 
-    "btc":0, 
-    "eth":0, 
-    "ltc":0,
-    "bch":0,
+var crypto_prices = {
+    "btc": 0,
+    "eth": 0,
+    "ltc": 0,
+    "bch": 0,
 };
 
-var usd_value = 153;
-var eur_value = 180;
+//var valuesJson = new Request('https://api.bluelytics.com.ar/v2/latest');
+
+fetch('https://api.bluelytics.com.ar/v2/latest')
+    .then(response => response.json())
+    .then(data => {
+        usd_value = data.blue.value_avg;
+        eur_value = data.blue_euro.value_avg;
+    });
+
 
 var coinList = ["btc", "eth", "ltc", "bch"]
 var stupidCoins = ["dai", "usdt"]
@@ -20,7 +27,7 @@ var coinType = "ARS";
 function changeCoin(coin) {
     coinType = coin;
 
-    coinList.forEach(function (element){
+    coinList.forEach(function (element) {
         price = crypto_prices[element];
         let buyPrice = GetResult(price, buyPercent);
         let sellPrice = GetResult(price, sellPercent);
@@ -108,16 +115,30 @@ function NewMessage(data) {
     });
 };
 
-function ChangeData(coinName, sellValue, buyValue){
+function ChangeData(coinName, sellValue, buyValue) {
     let sellElement = coinName + "-c";
     let buyElement = coinName + "-v";
-    if (coinName == "ltc"){
+    if (coinName == "ltc") {
         console.log(sellValue);
         console.log(coinName);
-    
-
     }
-    
-    document.getElementById(sellElement).innerHTML = sellValue.toFixed(2);
-    document.getElementById(buyElement).innerHTML = buyValue.toFixed(2);
+
+    if (coinType == "ARS") {
+        document.getElementById(sellElement).innerHTML = " $ ARS " + sellValue.toFixed(2);
+        document.getElementById(buyElement).innerHTML = " $ ARS " + buyValue.toFixed(2);
+    }
+
+    else if (coinType == "EUR") {
+        document.getElementById(sellElement).innerHTML = " € EUR " + sellValue.toFixed(2);
+        document.getElementById(buyElement).innerHTML = " € EUR " + buyValue.toFixed(2);
+    }
+
+    else if (coinType == "USD") {
+        document.getElementById(sellElement).innerHTML = " $ USA " + sellValue.toFixed(2);
+        document.getElementById(buyElement).innerHTML = " $ USA " + buyValue.toFixed(2);
+    }
+
+    else {
+        console.log("Esto no se deberia ver")
+    }
 }
