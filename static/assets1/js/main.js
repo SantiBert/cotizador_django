@@ -6,6 +6,9 @@ var crypto_prices = {
     "bch": 0,
 };
 
+var usd_value = 0;
+var eur_value = 0;
+
 //consulta de valor de dolar y euro
 fetch('https://api.bluelytics.com.ar/v2/latest')
     .then(response => response.json())
@@ -18,8 +21,8 @@ fetch('https://api.bluelytics.com.ar/v2/latest')
 var coinList = ["btc", "eth", "ltc", "bch"]
 var stupidCoins = ["dai", "usdt"]
 
-var buyPercent = 0.35;
-var sellPercent = 0.31;
+var buyPercent = 0.01;
+var sellPercent = 0.04;
 
 var coinType = "ARS";
 
@@ -81,19 +84,20 @@ function GetResult(price, percent) {
     // realizar el calculo
     //Recordar chequear por la moneda seleccionada
     if (coinType == "ARS") {
-        let conversion = price * usd_value
+        let conversion = price * usd_value;
         let result = conversion * (1 + percent);
-        ;
+        
         return result;
     }
     else if (coinType == "EUR") {
-        let conversion = price * eur_value
+        
+        let conversion = (price * usd_value)/eur_value;
         let result = conversion * (1 + percent);
-        ;
+        
         return result;
     }
     else if (coinType == "USD") {
-        let result = price;
+        let result = price * (1 + percent);
         return result;
     }
     else {
@@ -105,16 +109,14 @@ function NewMessage(data) {
     coinList.forEach(function (element) {
         let channelName = "live_trades_" + element + "usd";
         if (data.channel == channelName) {
-            if (data.event == "trade") {
-                console.log(element);
-                console.log(data.data);
+            if (data.event == "trade") 
                 crypto_prices[element] = data.data.price;
                 let sellValue = GetResult(data.data.price, sellPercent);
                 let buyValue = GetResult(data.data.price, buyPercent);
                 ChangeData(element, sellValue, buyValue);
             }
         }
-    });
+    );
 };
 
 function ChangeData(coinName, sellValue, buyValue) {
