@@ -86,14 +86,14 @@ function GetResult(price, percent) {
     if (coinType == "ARS") {
         let conversion = price * usd_value;
         let result = conversion * (1 + percent);
-        
+
         return result;
     }
     else if (coinType == "EUR") {
-        
-        let conversion = (price * usd_value)/eur_value;
+
+        let conversion = (price * usd_value) / eur_value;
         let result = conversion * (1 + percent);
-        
+
         return result;
     }
     else if (coinType == "USD") {
@@ -109,13 +109,13 @@ function NewMessage(data) {
     coinList.forEach(function (element) {
         let channelName = "live_trades_" + element + "usd";
         if (data.channel == channelName) {
-            if (data.event == "trade") 
+            if (data.event == "trade")
                 crypto_prices[element] = data.data.price;
-                let sellValue = GetResult(data.data.price, sellPercent);
-                let buyValue = GetResult(data.data.price, buyPercent);
-                ChangeData(element, sellValue, buyValue);
-            }
+            let sellValue = GetResult(data.data.price, sellPercent);
+            let buyValue = GetResult(data.data.price, buyPercent);
+            ChangeData(element, sellValue, buyValue);
         }
+    }
     );
 };
 
@@ -146,3 +146,4 @@ function ChangeData(coinName, sellValue, buyValue) {
         console.log("Esto no se deberia ver")
     }
 }
+

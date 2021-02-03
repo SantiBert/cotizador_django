@@ -3,14 +3,18 @@ from django.views.generic import View
 from django.shortcuts import render
 # Create your views here.
 
+btcimage = "./assets1/img/bitcoin1.png"
+bchimage = "./assets1/img/bitcoin1.png"
+etcimage = "./assets1/img/bitcoin1.png"
+
 
 def IndexView(request):
-    cryptoDict = {"btc": ("Bitcoin", "./assets/img/bitcoin.png", "f7931a"),
-                  "eth": ("Ethereum", "./assets/img/etherum.png", "627eea"),
-                  "ltc": ("Litecoin", "./assets/img/bitcoin.png", "777777"),
-                  "bch": ("Bitcoin Cash", "./assets/img/bitcoin.png", "50ae94"),
-                  "dai": ("DAI", "./assets/img/bitcoin.png", "FAB62B"),
-                  "usdt": ("Tether (USDT)", "./assets/img/bitcoin.png", "8dc351"),
+    cryptoDict = {"btc": ("Bitcoin", "btcimage", "f7931a"),
+                  "eth": ("Ethereum", "etcimage", "627eea"),
+                  "ltc": ("Litecoin", "btcimage", "777777"),
+                  "bch": ("Bitcoin Cash", "bchimage", "50ae94"),
+                  "dai": ("DAI", "btcimage", "FAB62B"),
+                  "usdt": ("Tether (USDT)", "btcimage", "8dc351"),
                   }
 
     context = {"cryptoDict": cryptoDict}
