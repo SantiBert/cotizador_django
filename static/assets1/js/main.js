@@ -6,9 +6,6 @@ var crypto_prices = {
     "bch": 0,
 };
 
-var usd_value = 0;
-var eur_value = 0;
-
 //consulta de valor de dolar y euro
 fetch('https://api.bluelytics.com.ar/v2/latest')
     .then(response => response.json())
@@ -81,6 +78,8 @@ ws2.onclose = function () {
 
 
 function GetResult(price, percent) {
+    document.getElementById("precio_dolar").innerHTML = "Precio dolar:  " + usd_value.toFixed(2) + "$";
+    document.getElementById("precio_euro").innerHTML = "Precio euro:  " + eur_value.toFixed(2) + "$";
     // realizar el calculo
     //Recordar chequear por la moneda seleccionada
     if (coinType == "ARS") {
