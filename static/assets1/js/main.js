@@ -80,6 +80,8 @@ ws2.onclose = function () {
 function GetResult(price, percent) {
     document.getElementById("precio_dolar").innerHTML = "Precio dolar USA$:  " + usd_value.toFixed(2) + "$";
     document.getElementById("precio_euro").innerHTML = "Precio euro EUR€:  " + eur_value.toFixed(2) + "$";
+    document.getElementById("buy_percent").innerHTML = "Cotizacion de compre:  " + buyPercent.toFixed(2);
+    document.getElementById("sell_percent").innerHTML = "Cotizacion de venta:  " + sellPercent.toFixed(2);
     // realizar el calculo
     //Recordar chequear por la moneda seleccionada
     if (coinType == "ARS") {
