@@ -10,6 +10,8 @@
     <title>
         Titulo
     </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -169,7 +171,7 @@
                                         </div>
                                         <hr class="line" style="background-color: #f7931a;">
                                         <div class="centered">
-                                            <a id="btc-c" class="btn btn-simple btn-sm text-white"
+                                            <a id="btc-c" class="btn btn-simple text-white"
                                                 style="background-color: #f7931a;" href="#contact">
                                             </a>
                                         </div>
@@ -182,7 +184,7 @@
 
                                         <hr class="line" style="background-color: #f7931a;">
                                         <div class="centered">
-                                            <a id="btc-v" class="btn btn-simple btn-sm text-white"
+                                            <a id="btc-v" class="btn btn-simple text-white"
                                                 style="background-color: #f7931a;" href="#contact"></a>
                                         </div>
                                     </div>
@@ -215,7 +217,7 @@
                                         </div>
                                         <hr class="line" style="background-color: #627eea;">
                                         <div class="centered">
-                                            <a id="eth-c" class="btn btn-simple btn-sm text-white"
+                                            <a id="eth-c" class="btn btn-simple text-white"
                                                 style="background-color: #627eea;" href="#contact">
                                             </a>
                                         </div>
@@ -228,7 +230,7 @@
 
                                         <hr class="line" style="background-color: #627eea;">
                                         <div class="centered">
-                                            <a id="eth-v" class="btn btn-simple btn-sm text-white"
+                                            <a id="eth-v" class="btn btn-simple text-white"
                                                 style="background-color: #627eea;" href="#contact"></a>
                                         </div>
                                     </div>
@@ -261,7 +263,7 @@
                                         </div>
                                         <hr class="line" style="background-color: #777777;">
                                         <div class="centered">
-                                            <a id="ltc-c" class="btn btn-simple btn-sm text-white"
+                                            <a id="ltc-c" class="btn btn-simple text-white"
                                                 style="background-color: #777777;" href="#contact">
                                             </a>
                                         </div>
@@ -274,7 +276,7 @@
 
                                         <hr class="line" style="background-color: #777777;">
                                         <div class="centered">
-                                            <a id="ltc-v" class="btn btn-simple btn-sm text-white"
+                                            <a id="ltc-v" class="btn btn-simple text-white"
                                                 style="background-color: #777777;" href="#contact"></a>
                                         </div>
                                     </div>
@@ -307,7 +309,7 @@
                                         </div>
                                         <hr class="line" style="background-color: #50ae94;">
                                         <div class="centered">
-                                            <a id="bch-c" class="btn btn-simple btn-sm text-white"
+                                            <a id="bch-c" class="btn btn-simple text-white"
                                                 style="background-color: #50ae94;" href="#contact">
                                             </a>
                                         </div>
@@ -320,7 +322,7 @@
 
                                         <hr class="line" style="background-color: #50ae94;">
                                         <div class="centered">
-                                            <a id="bch-v" class="btn btn-simple btn-sm text-white"
+                                            <a id="bch-v" class="btn btn-simple text-white"
                                                 style="background-color: #50ae94;" href="#contact"></a>
                                         </div>
                                     </div>
@@ -352,7 +354,7 @@
                                         </div>
                                         <hr class="line" style="background-color: #FAB62B;">
                                         <div class="centered">
-                                            <a id="dai-c" class="btn btn-simple btn-sm text-white"
+                                            <a id="dai-c" class="btn btn-simple text-white"
                                                 style="background-color: #FAB62B;" href="#contact">
                                             </a>
                                         </div>
@@ -365,7 +367,7 @@
 
                                         <hr class="line" style="background-color: #FAB62B;">
                                         <div class="centered">
-                                            <a id="dai-v" class="btn btn-simple btn-sm text-white"
+                                            <a id="dai-v" class="btn btn-simple text-white"
                                                 style="background-color: #FAB62B;" href="#contact"></a>
                                         </div>
                                     </div>
@@ -397,7 +399,7 @@
                                         </div>
                                         <hr class="line" style="background-color: #8dc351;">
                                         <div class="centered">
-                                            <a id="eth-c" class="btn btn-simple btn-sm text-white"
+                                            <a id="eth-c" class="btn btn-simple text-white"
                                                 style="background-color: #8dc351;" href="#contact">
                                             </a>
                                         </div>
@@ -410,7 +412,7 @@
 
                                         <hr class="line" style="background-color: #8dc351;">
                                         <div class="centered">
-                                            <a id="eth-v" class="btn btn-simple btn-sm text-white"
+                                            <a id="eth-v" class="btn btn-simple text-white"
                                                 style="background-color: #8dc351;" href="#contact"></a>
                                         </div>
                                     </div>
@@ -519,7 +521,30 @@
             demo.initLandingPageChart();
         });
     </script>
-
+    <script type="text/javascript">
+        $(".btc-c").counterUp({ delay: 10, time: 1000 });
+    </script>
+    <script type="text/javascript">
+        $(".btc-v").counterUp({ delay: 10, time: 1000 });
+    </script>
+    <script type="text/javascript">
+        $(".eth-c").counterUp({ delay: 10, time: 1000 });
+    </script>
+    <script type="text/javascript">
+        $(".eth-v").counterUp({ delay: 10, time: 1000 });
+    </script>
+    <script type="text/javascript">
+        $(".ltc-c").counterUp({ delay: 10, time: 1000 });
+    </script>
+    <script type="text/javascript">
+        $(".ltc-v").counterUp({ delay: 10, time: 1000 });
+    </script>
+    <script type="text/javascript">
+        $(".bch-c").counterUp({ delay: 10, time: 1000 });
+    </script>
+    <script type="text/javascript">
+        $(".bch-v").counterUp({ delay: 10, time: 1000 });
+    </script>
 </body>
 
 </html>
