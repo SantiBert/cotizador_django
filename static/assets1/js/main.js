@@ -14,9 +14,15 @@ fetch('https://api.bluelytics.com.ar/v2/latest')
         eur_value = data.blue_euro.value_avg;
     });
 
+const options = { style: 'currency', currency: 'ARS' };
+const numberFormat = new Intl.NumberFormat('it-IT', options);
+const options2 = { style: 'currency', currency: 'USD' };
+const numberFormat2 = new Intl.NumberFormat('it-IT', options2);
+const options3 = { style: 'currency', currency: 'EUR' };
+const numberFormat3 = new Intl.NumberFormat('it-IT', options3);
 
-var coinList = ["btc", "eth", "ltc", "bch"]
-var stupidCoins = ["dai", "usdt"]
+var coinList = ["btc", "eth", "ltc", "bch", "dai", "usdt"]
+
 
 var buyPercent = 0.01;
 var sellPercent = 0.04;
@@ -129,18 +135,18 @@ function ChangeData(coinName, sellValue, buyValue) {
     }
 
     if (coinType == "ARS") {
-        document.getElementById(sellElement).innerHTML = " $ ARS " + sellValue.toFixed(2);
-        document.getElementById(buyElement).innerHTML = " $ ARS " + buyValue.toFixed(2);
+        document.getElementById(sellElement).innerHTML = "$ " + numberFormat.format(sellValue);
+        document.getElementById(buyElement).innerHTML = "$ " + numberFormat.format(buyValue);
     }
 
     else if (coinType == "EUR") {
-        document.getElementById(sellElement).innerHTML = " € EUR " + sellValue.toFixed(2);
-        document.getElementById(buyElement).innerHTML = " € EUR " + buyValue.toFixed(2);
+        document.getElementById(sellElement).innerHTML = "EUR " + numberFormat3.format(sellValue);
+        document.getElementById(buyElement).innerHTML = "EUR " + numberFormat3.format(buyValue);
     }
 
     else if (coinType == "USD") {
-        document.getElementById(sellElement).innerHTML = " $ USA " + sellValue.toFixed(2);
-        document.getElementById(buyElement).innerHTML = " $ USA " + buyValue.toFixed(2);
+        document.getElementById(sellElement).innerHTML = "$ " + numberFormat2.format(sellValue);
+        document.getElementById(buyElement).innerHTML = "$ " + numberFormat2.format(buyValue);
     }
 
     else {

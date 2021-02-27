@@ -3,10 +3,6 @@ from django.views.generic import View
 from django.shortcuts import render
 # Create your views here.
 
-btcimage = "./assets1/img/bitcoin1.png"
-bchimage = "./assets1/img/bitcoin1.png"
-etcimage = "./assets1/img/bitcoin1.png"
-
 
 def IndexView(request):
     cryptoDict = {"btc": ("Bitcoin", "btcimage", "f7931a"),
