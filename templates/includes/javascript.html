@@ -1,4 +1,5 @@
 {% load static %}
+
 <script>
     // Primer elemento de la lista es compra y el segundo venta
 
@@ -30,9 +31,11 @@
 
     var coinList = ["btc", "eth", "ltc", "bch", "dai", "usdt"]
 
+    var buyPercent = ({{ comision.buy }})/100;
+    var sellPercent = ({{ comision.sell }})/100;
 
-    var buyPercent = 0.01;
-    var sellPercent = 0.04;
+    //var buyPercent = 0.01;
+    //var sellPercent = 0.04;
 
     var coinType = "ARS";
 
@@ -87,8 +90,7 @@
     ws2.onclose = function () {
         console.log("Websocket connection closed");
     };
-
-
+    
     function GetResult(price, percent) {
         document.getElementById("precio_dolar").innerHTML = "Precio dolar USA$:  " + usd_value.toFixed(2);
         document.getElementById("precio_euro").innerHTML = "Precio euro EUR€:  " + eur_value.toFixed(2);

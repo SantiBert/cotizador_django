@@ -6,7 +6,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 
-from .models import Coin, Description
+from .models import Coin, Description, Comision
 from .forms import DescriptionForm
 from contac.models import Contac
 from social.models import Social
@@ -21,6 +21,7 @@ class IndexView(TemplateView):
         context = super().get_context_data(**kwargs)
         coin = Coin.objects.all().order_by('-created_date')
         text = Description.objects.all().order_by('-created_date')
+        comisions = Comision.objects.all()
         now = timezone.now()
         minus = timedelta(minutes=10)
         if coin:
@@ -34,16 +35,19 @@ class IndexView(TemplateView):
         context['text'] = text[0]
         context['contacs'] = Contac.objects.all()
         context['socials'] = Social.objects.all()
-
+        context['comision'] = comisions[0]
         return context
 
 
 class JavascripView(View):
     def get(self, request, *args, **kwargs):
         all_coin = Coin.objects.all()
+        comisions = Comision.objects.all()
         coin = all_coin[0]
+        comision = comisions[0]
         context = {
-            'coin': coin
+            'coin': coin,
+            'comision':comision,
         }
         return render(request, 'includes/javascript.html', context)
 
