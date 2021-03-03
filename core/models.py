@@ -3,18 +3,12 @@ from django.utils import timezone
 
 
 class Coin(models.Model):
-    btc_c = models.DecimalField(max_digits=19, decimal_places=2)
-    btc_v = models.DecimalField(max_digits=19, decimal_places=2)
-    eth_c = models.DecimalField(max_digits=19, decimal_places=2)
-    eth_v = models.DecimalField(max_digits=19, decimal_places=2)
-    ltc_c = models.DecimalField(max_digits=19, decimal_places=2)
-    ltc_v = models.DecimalField(max_digits=19, decimal_places=2)
-    bch_c = models.DecimalField(max_digits=19, decimal_places=2)
-    bch_v = models.DecimalField(max_digits=19, decimal_places=2)
-    dai_c = models.DecimalField(max_digits=19, decimal_places=2)
-    dai_v = models.DecimalField(max_digits=19, decimal_places=2)
-    usdt_c = models.DecimalField(max_digits=19, decimal_places=2)
-    usdt_v = models.DecimalField(max_digits=19, decimal_places=2)
+    btc = models.DecimalField(max_digits=19, decimal_places=2)
+    eth = models.DecimalField(max_digits=19, decimal_places=2)    
+    ltc = models.DecimalField(max_digits=19, decimal_places=2)    
+    bch = models.DecimalField(max_digits=19, decimal_places=2)   
+    dai = models.DecimalField(max_digits=19, decimal_places=2)   
+    usdt = models.DecimalField(max_digits=19, decimal_places=2)    
     created_date = models.DateTimeField(default=timezone.now)
 
 
