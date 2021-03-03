@@ -17,4 +17,4 @@ usdt = requests.get(
     "https://criptoya.com/api/usdt/usd/0.1").json()  # compra:["sesocio"]["totalAsk"] venta: ["sesocio"]["ask"]
 
 #print("venta: " + str(usdt["sesocio"]["ask"]) +"  compra: " + str(usdt["sesocio"]["totalAsk"]))
-# print(dai)
+print(ltc)

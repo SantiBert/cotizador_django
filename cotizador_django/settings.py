@@ -26,19 +26,21 @@ SECRET_KEY = 'b59t4c35o)@3*a1$k&)bs6e+lfqhsx@3a5y!uq!d2&-+ov1p78'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'core',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
+    'contac',
+    'social',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +126,6 @@ STATICFILES_DIRS = (BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = 'administration'
+LOGOUT_REDIRECT_URL = 'index'

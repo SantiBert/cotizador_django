@@ -1,9 +1,12 @@
 // Primer elemento de la lista es compra y el segundo venta
+
 var crypto_prices = {
     "btc": 0,
     "eth": 0,
     "ltc": 0,
     "bch": 0,
+    "dai": 0,
+    "usdt": 0,
 };
 
 //consulta de valor de dolar y euro
@@ -13,6 +16,8 @@ fetch('https://api.bluelytics.com.ar/v2/latest')
         usd_value = data.blue.value_avg;
         eur_value = data.blue_euro.value_avg;
     });
+
+
 
 const options = { style: 'currency', currency: 'ARS' };
 const numberFormat = new Intl.NumberFormat('it-IT', options);
@@ -31,7 +36,6 @@ var coinType = "ARS";
 
 function changeCoin(coin) {
     coinType = coin;
-
     coinList.forEach(function (element) {
         price = crypto_prices[element];
         let buyPrice = GetResult(price, buyPercent);
@@ -84,8 +88,8 @@ ws2.onclose = function () {
 
 
 function GetResult(price, percent) {
-    document.getElementById("precio_dolar").innerHTML = "Precio dolar USA$:  " + usd_value.toFixed(2) + "$";
-    document.getElementById("precio_euro").innerHTML = "Precio euro EUR€:  " + eur_value.toFixed(2) + "$";
+    document.getElementById("precio_dolar").innerHTML = "Precio dolar USA$:  " + usd_value.toFixed(2);
+    document.getElementById("precio_euro").innerHTML = "Precio euro EUR€:  " + eur_value.toFixed(2);
     document.getElementById("buy_percent").innerHTML = "Comisión por compra:  " + (buyPercent.toFixed(2) * 100) + "%";
     document.getElementById("sell_percent").innerHTML = "Comisión por venta:  " + (sellPercent.toFixed(2) * 100) + "%";
     // realizar el calculo
@@ -129,10 +133,6 @@ function NewMessage(data) {
 function ChangeData(coinName, sellValue, buyValue) {
     let sellElement = coinName + "-c";
     let buyElement = coinName + "-v";
-    if (coinName == "ltc") {
-        console.log(sellValue);
-        console.log(coinName);
-    }
 
     if (coinType == "ARS") {
         document.getElementById(sellElement).innerHTML = "$ " + numberFormat.format(sellValue);

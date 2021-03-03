@@ -1,0 +1,11 @@
+{% extends 'baseregistration.html' %}
+{% block title %}Editar {{object.name}}{% endblock %}
+{% block content %}
+<div class="contact-title">
+    <h2 class="text-center">Editar {{object.name}}</h2>
+</div>
+<form action="" method="post">{% csrf_token %}
+    {{form.as_p}}
+    <p><input type="submit" class="btn btn-primary btn-block" value="Editar"></p>
+</form>
+{% endblock %}

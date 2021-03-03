@@ -1,0 +1,12 @@
+{% extends 'baseregistration.html' %}
+{% block title %}Adminitración{% endblock %}
+{% block content %}
+<div class="contact-title">
+    <h2 class="text-center">Administración</h2>
+</div>
+<div class="container d-flex justify-content-center aling-items-center h-100">
+    <a href="{% url 'contacList' %}" class="btn btn-danger btn-lg">Contactos</a>
+    <a href="{% url 'socialList' %}" class="btn btn-success btn-lg">Redes Sociales</a>
+    <a href="{% url 'Descrition' %}" class="btn btn-info btn-lg">Parrafo</a>
+</div>
+{% endblock %}

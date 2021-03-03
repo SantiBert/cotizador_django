@@ -1,0 +1,41 @@
+{% extends 'baseregistration.html' %}
+{% block title %}Lista de contactos{% endblock %}
+{% block content %}
+<div class="contact-title">
+    <h2 class="text-center">Lista de contactos</h2>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">#</th>
+            <th>Nombre</th>
+            <th><i class="fab fa-whatsapp p-1"></i>WhatsApp</th>
+            <th><i class="fab fa-telegram p-1"></i>Telegram</th>
+            <th class="text-right">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contac in contacs %}
+        <tr>
+            <td class="text-center">{{ forloop.counter }}</td>
+            <td>{{ contac.name }}</td>
+            <td>{{contac.whasapp}}</td>
+            <td>{{ contac.telegram }}</td>
+            <td class="td-actions text-right">
+                <a type="button" rel="tooltip" href="{% url 'contacUpdate' contac.id %}"
+                    class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                    <i class="tim-icons icon-settings"></i>
+                </a>
+                <a type="button" rel="tooltip" href="{% url 'contacDelete' contac.id %}"
+                    class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                    <i class="tim-icons icon-simple-remove"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'contacCreate' %}" class="btn btn-danger btn-lg">Nuevo Contacto</a>
+
+{% endblock %}
