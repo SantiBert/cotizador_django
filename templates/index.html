@@ -80,6 +80,13 @@
                             <i class="tim-icons icon-chat-33"></i> Contacto
                         </a>
                     </li>
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'administration' %}">
+                            <i class="tim-icons icon-bullet-list-67"></i> Admin
+                        </a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -167,7 +174,7 @@
                                         <div class="centered">
                                             <a id="btc-c" class="btn btn-simple text-white"
                                                 style="background-color: #f7931a;padding: 8px;font-size:13px;"
-                                                href="#contact">
+                                                href="#contact">                                                
                                             </a>
                                         </div>
                                     </div>
@@ -358,7 +365,7 @@
                                         <div class="centered">
                                             <a id="dai-c" class="btn btn-simple text-white"
                                                 style="background-color: #FAB62B;padding: 8px;font-size:15px;"
-                                                href="#contact">
+                                                href="#contact">                                                
                                             </a>
                                         </div>
                                     </div>
@@ -405,7 +412,7 @@
                                         <div class="centered">
                                             <a id="usdt-c" class="btn btn-simple text-white"
                                                 style="background-color: #8dc351;padding: 8px;font-size:15px;"
-                                                href="#contact">
+                                                href="#contact">                                                
                                             </a>
                                         </div>
                                     </div>

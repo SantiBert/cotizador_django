@@ -26,7 +26,7 @@ SECRET_KEY = 'b59t4c35o)@3*a1$k&)bs6e+lfqhsx@3a5y!uq!d2&-+ov1p78'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'usauriosdev.pythonanywhere.com', 'cryptoway.com.ar']
 
 
 # Application definition

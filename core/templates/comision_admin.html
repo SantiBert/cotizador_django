@@ -1,0 +1,22 @@
+{% extends 'baseregistration.html' %}
+{% block title %}Comisiones{% endblock %}
+{% block content %}
+<div class="contact-title">
+    <h2 class="text-center">Comisiones </h2>
+</div>
+<div class="card-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="text-info text-center">Comisión por compra: </h3>
+                <h4 class="text-center">{{ comision.sell }} %</h4>
+            </div>
+            <div class="col-md-6">
+                <h3 class="text-success text-center">Comisión por venta: </h3>
+                <h4 class="text-center">{{ comision.buy }} %</h4>
+            </div>
+        </div>
+    </div>
+    <a href="{% url 'comisionUpdate' comision.id %}" class="btn btn-warning btn-lg">Editar</a>
+</div>
+{% endblock %}

@@ -7,10 +7,10 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 
 from .models import Coin, Description, Comision
-from .forms import DescriptionForm
+from .forms import DescriptionForm, ComisionForm
 from contac.models import Contac
 from social.models import Social
-from .signals import create_coin
+from .signals import create_coin, dolar
 
 
 class IndexView(TemplateView):
@@ -36,6 +36,8 @@ class IndexView(TemplateView):
         context['contacs'] = Contac.objects.all()
         context['socials'] = Social.objects.all()
         context['comision'] = comisions[0]
+        context['dolar'] = dolar
+        # Contexto de crytos
         return context
 
 
@@ -47,7 +49,7 @@ class JavascripView(View):
         comision = comisions[0]
         context = {
             'coin': coin,
-            'comision':comision,
+            'comision': comision,
         }
         return render(request, 'includes/javascript.html', context)
 
@@ -74,3 +76,22 @@ class DescriptionUpdateView(UpdateView):
     form_class = DescriptionForm
     template_name_suffix = '_update_form'
     success_url = reverse_lazy('Descrition')
+
+
+@method_decorator(login_required, name='dispatch')
+class ComisionAdminView(View):
+    def get(self, request, *args, **kwargs):
+        comision = Comision.objects.all().order_by('-created_date')
+        context = {
+            'comision': comision[0]
+        }
+        return render(request, 'comision_admin.html', context)
+
+
+@method_decorator(login_required, name='dispatch')
+class ComisionUpdateView(UpdateView):
+    model = Comision
+    template_name = 'comision_update_form.html'
+    form_class = ComisionForm
+    template_name_suffix = '_update_form'
+    success_url = reverse_lazy('comisionAdmin')

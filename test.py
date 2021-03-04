@@ -16,5 +16,7 @@ dai = requests.get("https://criptoya.com/api/dai/usd/0.1").json()
 usdt = requests.get(
     "https://criptoya.com/api/usdt/usd/0.1").json()  # compra:["sesocio"]["totalAsk"] venta: ["sesocio"]["ask"]
 
+dolar = requests.get("https://api.bluelytics.com.ar/v2/latest").json()
+
 #print("venta: " + str(usdt["sesocio"]["ask"]) +"  compra: " + str(usdt["sesocio"]["totalAsk"]))
-print(ltc)
+print(dolar)
