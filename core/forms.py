@@ -24,5 +24,5 @@ class ComisionForm(forms.ModelForm):
         }
         """
         labels = {
-            'sell': 'Compra (Porcentaje)', 'buy': 'Venta (Porcentaje)',
+            'sell': 'Venta (Porcentaje)', 'buy': 'Compra (Porcentaje)',
         }
