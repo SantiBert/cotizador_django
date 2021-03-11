@@ -4,9 +4,9 @@
     // Primer elemento de la lista es compra y el segundo venta
 
     var crypto_prices = {
-        "btc": 0,
-        "eth": 0,
-        "ltc": 0,
+        "btc": ({{ coin.btc }}).toFixed(2),
+        "eth": ({{ coin.eth }}).toFixed(2),
+        "ltc": ({{ coin.ltc }}).toFixed(2),
         "dot": ({{ coin.dot }}).toFixed(2),
         "ada": ({{ coin.ada }}).toFixed(2),
         "usdt": ({{ coin.usdt }}).toFixed(2),
@@ -33,6 +33,7 @@
 
     var buyPercent = ({{ comision.buy }}).toFixed(2) / 100;
     var sellPercent = ({{ comision.sell }}).toFixed(2) / 100;
+    
 
     //var buyPercent = 0.01;
     //var sellPercent = 0.04;
@@ -93,7 +94,7 @@
 
     function GetResult(price, percent) {
         document.getElementById("precio_dolar").innerHTML = "Precio dolar USA$:  " + (usd_value +({{ extra.dolar }})).toFixed(2);
-        document.getElementById("precio_euro").innerHTML = "Precio euro EUR€:  " + (eur_value + ({{ extra.dolar }})).toFixed(2);
+        document.getElementById("precio_euro").innerHTML = "Precio euro EUR€:  " + (eur_value + ({{ extra.euro }})).toFixed(2);
         document.getElementById("buy_percent").innerHTML = "Comisión por compra:  " + (buyPercent * 100).toFixed(2) + "%";
         document.getElementById("sell_percent").innerHTML = "Comisión por venta:  " + (sellPercent * 100).toFixed(2) + "%";
         // realizar el calculo
@@ -104,11 +105,9 @@
 
             return result;
         }
-        else if (coinType == "EUR") {
-            
+        else if (coinType == "EUR") {            
             let conversion = (price * (usd_value + ({{ extra.dolar }}).toFixed(2))) / eur_value;
-            let result = conversion * (1 + percent);
-
+            let result = conversion * (1 + percent);            
             return result;
         }
         else if (coinType == "USD") {

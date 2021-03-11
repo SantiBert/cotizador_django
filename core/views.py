@@ -19,6 +19,7 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
+
         context = super().get_context_data(**kwargs)
         coin = Coin.objects.all().order_by('-created_date')
         text = Description.objects.all().order_by('-created_date')
@@ -163,3 +164,14 @@ class CitasDeleteView(DeleteView):
     template_name = 'citas_confirm_delete.html'
     template_name_suffix = '_update_form'
     success_url = reverse_lazy('notesAdmin')
+
+
+"""
+cryptoDict = {"btc": (float(coin.btc) * (dolar + float(extra[0].dolar)), (float(coin.btc) * (dolar + float(extra[0].dolar))),
+                      "eth": (float(coin.eth) * (dolar + float(extra[0].dolar)), (float(coin.btc) * (dolar + float(extra[0].dolar))),
+                      "ltc": (float(coin.ltc) * (dolar + float(extra[0].dolar)), (float(coin.btc) * (dolar + float(extra[0].dolar))),
+                      "dot": (float(coin.dot) * (dolar + float(extra[0].dolar)), (float(coin.btc) * (dolar + float(extra[0].dolar))),
+                      "ada": (float(coin.ada) * (dolar + float(extra[0].dolar)), (float(coin.btc) * (dolar + float(extra[0].dolar))),
+                      "usdt": (float(coin.usdt) * (dolar + float(extra[0].dolar)),(float(coin.btc) * (dolar + float(extra[0].dolar))),
+                      }
+"""

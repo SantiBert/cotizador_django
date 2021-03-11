@@ -13,22 +13,21 @@ headers = {
 }
 
 # call por cada coin
-btc = requests.get("https://criptoya.com/api/bitstamp/btc").json()
-eth = requests.get("https://criptoya.com/api/bitstamp/eth").json()
-ltc = requests.get("https://criptoya.com/api/universalcoins/ltc/usd").json()
-dot = requests.get(
-    "https://api.coinranking.com/v2/coin/25W7FG7om", headers=headers).json()
-ada = requests.get("https://criptoya.com/api/letsbit/ada/ars/0.1").json()
-usdt = requests.get("https://criptoya.com/api/sesocio/dai/usd/0.1").json()
+btc = requests.get('https://api.coinranking.com/v2/coin/Qwsogvtv82FCd', headers=headers).json()
+eth = requests.get('https://api.coinranking.com/v2/coin/razxDUgYGNAdQ', headers=headers).json()
+ltc = requests.get('https://api.coinranking.com/v2/coin/D7B1x_ks7WhV5', headers=headers).json()
+dot = requests.get('https://api.coinranking.com/v2/coin/25W7FG7om', headers=headers).json()
+ada = requests.get('https://api.coinranking.com/v2/coin/qzawljRxB5bYu', headers=headers).json()
+usdt = requests.get('https://api.coinranking.com/v2/coin/HIVsRcGKkPFtW', headers=headers).json()
 
 
 def create_coin():
     coin = Coin.objects.create(
-        btc=btc["last"],
-        eth=eth["last"],
-        ltc=ltc["totalAsk"],
+        btc=btc['data']['coin']['price'],
+        eth=eth['data']['coin']['price'],
+        ltc=ltc['data']['coin']['price'],
         dot=dot['data']['coin']['price'],
-        ada=(ada["totalAsk"]/dolar),
-        usdt=usdt["totalAsk"],
+        ada=dot['data']['coin']['price'],
+        usdt=usdt['data']['coin']['price'],
     )
     return coin
