@@ -7,9 +7,9 @@
         "btc": 0,
         "eth": 0,
         "ltc": 0,
-        "bch": 0,
-        "dai": ({{ coin.dai }}).toFixed(2),
-            "usdt": ({{ coin.usdt }}).toFixed(2),
+        "dot": ({{ coin.dot }}).toFixed(2),
+        "ada": ({{ coin.ada }}).toFixed(2),
+        "usdt": ({{ coin.usdt }}).toFixed(2),
     };
 
     //consulta de valor de dolar y euro
@@ -29,10 +29,10 @@
     const options3 = { style: 'currency', currency: 'EUR' };
     const numberFormat3 = new Intl.NumberFormat('it-IT', options3);
 
-    var coinList = ["btc", "eth", "ltc", "bch", "dai", "usdt"]
+    var coinList = ["btc", "eth", "ltc", "dot", "ada", "usdt"]
 
-    var buyPercent = ({{ comision.buy }}) /100;
-    var sellPercent = ({{ comision.sell }}) /100;
+    var buyPercent = ({{ comision.buy }}).toFixed(2) / 100;
+    var sellPercent = ({{ comision.sell }}).toFixed(2) / 100;
 
     //var buyPercent = 0.01;
     //var sellPercent = 0.04;
@@ -92,21 +92,21 @@
     };
 
     function GetResult(price, percent) {
-        document.getElementById("precio_dolar").innerHTML = "Precio dolar USA$:  " + usd_value.toFixed(2);
-        document.getElementById("precio_euro").innerHTML = "Precio euro EUR€:  " + eur_value.toFixed(2);
-        document.getElementById("buy_percent").innerHTML = "Comisión por compra:  " + (buyPercent.toFixed(2) * 100) + "%";
-        document.getElementById("sell_percent").innerHTML = "Comisión por venta:  " + (sellPercent.toFixed(2) * 100) + "%";
+        document.getElementById("precio_dolar").innerHTML = "Precio dolar USA$:  " + (usd_value +({{ extra.dolar }})).toFixed(2);
+        document.getElementById("precio_euro").innerHTML = "Precio euro EUR€:  " + (eur_value + ({{ extra.dolar }})).toFixed(2);
+        document.getElementById("buy_percent").innerHTML = "Comisión por compra:  " + (buyPercent * 100).toFixed(2) + "%";
+        document.getElementById("sell_percent").innerHTML = "Comisión por venta:  " + (sellPercent * 100).toFixed(2) + "%";
         // realizar el calculo
         //Recordar chequear por la moneda seleccionada
         if (coinType == "ARS") {
-            let conversion = price * usd_value;
+            let conversion = price * (usd_value + ({{ extra.dolar }}).toFixed(2));
             let result = conversion * (1 + percent);
 
             return result;
         }
         else if (coinType == "EUR") {
-
-            let conversion = (price * usd_value) / eur_value;
+            
+            let conversion = (price * (usd_value + ({{ extra.dolar }}).toFixed(2))) / eur_value;
             let result = conversion * (1 + percent);
 
             return result;

@@ -18,6 +18,8 @@
     <!-- CSS Files -->
     <link href="{% static './assets1/css/blk-design-system-pro.mine209.css'%}?v=1.0.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
+    {% block ExtraCss %}
+    {% endblock ExtraCss %}
 </head>
 
 <body class="login-page">
@@ -64,26 +66,26 @@
                             <i class="tim-icons icon-chart-bar-32"></i> Admin
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contacList'%}">
-                            <i class="tim-icons icon-send"></i> Contactos
+                    <!--li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:;" id="navbarDropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <p>Opciones</p>
                         </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'socialList' %}">
-                            <i class="tim-icons icon-single-02"></i> Redes Sociales
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'comisionAdmin'%}">
-                            <i class="tim-icons icon-money-coins"></i> Comisiones
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'Descrition'%}">
-                            <i class="tim-icons icon-pencil"></i> Parrafo
-                        </a>
-                    </li>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="nav-link" href="{% url 'contacList'%}">
+                                <i class="tim-icons icon-send"></i> Contactos
+                            </a>
+                            <a class="nav-link" href="{% url 'socialList' %}">
+                                <i class="tim-icons icon-single-02"></i> Redes Sociales
+                            </a>
+                            <a class="nav-link" href="{% url 'comisionAdmin'%}">
+                                <i class="tim-icons icon-money-coins"></i> Comisiones
+                            </a>
+                            <a class="nav-link" href="{% url 'Descrition'%}">
+                                <i class="tim-icons icon-pencil"></i> Parrafo
+                            </a>
+                        </div>
+                    </li-->
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout'%}">
                             <i class="tim-icons icon-minimal-down"></i> Logout
@@ -124,6 +126,8 @@
         </div>
     </footer>
     <!--   Core JS Files   -->
+    {% block ExtraScript %}
+    {% endblock ExtraScript %}
     <script src="{% static './assets1/js/core/jquery.min.js'%}" type="text/javascript"></script>
     <script src="{% static './assets1/js/core/popper.min.js'%}" type="text/javascript"></script>
     <script src="{% static './assets/js/core/bootstrap.min.js'%}" type="text/javascript"></script>

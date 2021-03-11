@@ -1,27 +1,49 @@
 from django.db import models
 from django.utils import timezone
+from ckeditor.fields import RichTextField
 
 
 class Coin(models.Model):
     btc = models.CharField(max_length=50)
     eth = models.CharField(max_length=50)
     ltc = models.CharField(max_length=50)
-    bch = models.CharField(max_length=50)
-    dai = models.CharField(max_length=50)
+    dot = models.CharField(max_length=50)
+    ada = models.CharField(max_length=50)
     usdt = models.CharField(max_length=50)
     created_date = models.DateTimeField(default=timezone.now)
 
 
 class Comision(models.Model):
-    SCORE_CHOICES_S = zip(range(1, 100), range(1, 100))
-    SCORE_CHOICES_B = zip(range(1, 100), range(1, 100))
     id = models.AutoField(primary_key=True)
-    sell = models.IntegerField(choices=SCORE_CHOICES_S, blank=True)
-    buy = models.IntegerField(choices=SCORE_CHOICES_B, blank=True)
+    sell = models.CharField(max_length=50)
+    buy = models.CharField(max_length=50)
     created_date = models.DateTimeField(default=timezone.now)
 
 
 class Description(models.Model):
     id = models.AutoField(primary_key=True)
-    descrip = models.TextField()
+    descrip = RichTextField()
+    created_date = models.DateTimeField(default=timezone.now)
+
+
+class Citas(models.Model):
+    color_choices = (
+        ("ROSADO", "ROSADO"),
+        ("AZUL", "AZUL"),
+        ("VERDE", "VERDE"),
+        ("NARANJA", "NARANJA"),
+        ("AZUL OSCURO", "AZUL OSCURO"),
+    )
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=150)
+    text = models.TextField()
+    color = models.CharField(choices=color_choices,
+                             default="AZUL", max_length=80)
+    created_date = models.DateTimeField(default=timezone.now)
+
+
+class Extras(models.Model):
+    id = models.AutoField(primary_key=True)
+    dolar = models.CharField(max_length=150, default="0")
+    euro = models.CharField(max_length=150, default="0")
     created_date = models.DateTimeField(default=timezone.now)

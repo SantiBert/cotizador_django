@@ -1,0 +1,46 @@
+{% extends 'baseregistration.html' %}
+{% load static %}
+{% block title %}Lista de notas{% endblock %}
+{% block content %}
+<div class="contact-title">
+    <h2 class="text-center">Lista de notas</h2>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">#</th>
+            <th>Título</th>
+            <th>Texto</th>
+            <th>Color</th>
+            <th class="text-right">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cite in citas %}
+        <tr>
+            <td class="text-center">{{ forloop.counter }}</td>
+            <td>{{ cite.name }}</td>
+            <td>{{cite.text|truncatechars:"80"}}</td>
+            <td>
+                <button type="button"
+                    class="btn btn-{% if cite.color == 'ROSADO' %}primary{% elif cite.color == 'AZUL' %}info{% elif cite.color == 'VERDE' %}success{% elif cite.color == 'NARANJA' %}warning{% elif cite.color == 'AZUL OSCURO' %}default{% endif %}"></button>
+            </td>
+            <td class="td-actions text-right">
+                <a type="button" rel="tooltip" href="{% url 'notesUpdate' cite.id %}"
+                    class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                    <i class="tim-icons icon-settings"></i>
+                </a>
+                <a type="button" rel="tooltip" href="{% url 'notesDelete' cite.id %}"
+                    class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                    <i class="tim-icons icon-simple-remove"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'notesCreate' %}" class="btn btn-danger btn-lg">Nueva Nota</a>
+<a href="{% static '/assets1/img/ejemplodenota.jpg'%}" class="btn btn-info btn-lg float-right">Ejemplo</a>
+
+{% endblock %}

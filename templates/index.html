@@ -106,7 +106,14 @@
                     <div class="col-lg-6 col-md-6">
                         <img src="{% static './assets1/img/LOGOTIPO (3).png'%}" style="padding: 25px;" alt="">
 
-                        <p class="text-white mb-3">{{ text.descrip }}</p>
+                        <p class="text-white mb-3">{{ text.descrip|striptags|safe }}</p>
+                        {% for cite in cites %}
+                        <hr
+                            class="line-{% if cite.color == 'ROSADO' %}primary{% elif cite.color == 'AZUL' %}info{% elif cite.color == 'VERDE' %}success{% elif cite.color == 'NARANJA' %}warning{% elif cite.color == 'AZUL OSCURO' %}default{% endif %}">
+                            <span
+                                class="badge badge-pill badge-{% if cite.color == 'ROSADO' %}primary{% elif cite.color == 'AZUL' %}info{% elif cite.color == 'VERDE' %}success{% elif cite.color == 'NARANJA' %}warning{% elif cite.color == 'AZUL OSCURO' %}default{% endif %}">{{cite.name }}</span>
+                                <p class="text-{% if cite.color == 'ROSADO' %}primary{% elif cite.color == 'AZUL' %}info{% elif cite.color == 'VERDE' %}success{% elif cite.color == 'NARANJA' %}warning{% elif cite.color == 'AZUL OSCURO' %}default{% endif %}">{{ cite.text|striptags|safe }}</p>
+                        {% endfor %}
                     </div>
                     <div class="col-lg-4 col-md-5">
                         <img src="{% static './assets1/img/bitcoin2.png'%}" alt="Circle image" class="img-fluid">
@@ -174,7 +181,7 @@
                                         <div class="centered">
                                             <a id="btc-c" class="btn btn-simple text-white"
                                                 style="background-color: #f7931a;padding: 8px;font-size:13px;"
-                                                href="#contact">                                                
+                                                href="#contact">
                                             </a>
                                         </div>
                                     </div>
@@ -294,10 +301,10 @@
 
                     <!--fin Litecoin-->
 
-                    <!-- Bitcoin Cash -->
+                    <!-- Polkadot -->
 
                     <div class="col-md-4">
-                        <div id="bch" class="card card-coin card-plain" style="margin-bottom:50px;">
+                        <div id="dot" class="card card-coin card-plain" style="margin-bottom:50px;">
                             <div class="card-header">
                                 <br>
                                 <img src="{% static './assets1/img/bitcoincash.png'%}" class="img-center img-fluid">
@@ -305,7 +312,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
-                                        <h4 class="text-uppercase">Bitcoin Cash</h4>
+                                        <h4 class="text-uppercase">Polkadot (DOT)</h4>
                                     </div>
                                 </div>
 
@@ -316,7 +323,7 @@
                                         </div>
                                         <hr class="line" style="background-color: #50ae94;">
                                         <div class="centered">
-                                            <a id="bch-c" class="btn btn-simple text-white"
+                                            <a id="dot-c" class="btn btn-simple text-white"
                                                 style="background-color: #50ae94;padding: 8px;font-size:15px;"
                                                 href="#contact">
                                             </a>
@@ -330,7 +337,7 @@
 
                                         <hr class="line" style="background-color: #50ae94;">
                                         <div class="centered">
-                                            <a id="bch-v" class="btn btn-simple text-white"
+                                            <a id="dot-v" class="btn btn-simple text-white"
                                                 style="background-color: #50ae94;padding: 8px;font-size:15px;"
                                                 href="#contact"></a>
                                         </div>
@@ -342,10 +349,10 @@
 
                     <!--fin bitcoincash-->
 
-                    <!-- Dai -->
+                    <!-- Cardano -->
 
                     <div class="col-md-4">
-                        <div id="dai" class="card card-coin card-plain" style="margin-bottom:50px;">
+                        <div id="ada" class="card card-coin card-plain" style="margin-bottom:50px;">
                             <div class="card-header">
                                 <br>
                                 <img src="{% static './assets1/img/bitcoin.png'%}" class="img-center img-fluid">
@@ -353,7 +360,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
-                                        <h4 class="text-uppercase">DAI</h4>
+                                        <h4 class="text-uppercase">Cardano (ADA)</h4>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -363,9 +370,9 @@
                                         </div>
                                         <hr class="line" style="background-color: #FAB62B;">
                                         <div class="centered">
-                                            <a id="dai-c" class="btn btn-simple text-white"
+                                            <a id="ada-c" class="btn btn-simple text-white"
                                                 style="background-color: #FAB62B;padding: 8px;font-size:15px;"
-                                                href="#contact">                                                
+                                                href="#contact">
                                             </a>
                                         </div>
                                     </div>
@@ -377,7 +384,7 @@
 
                                         <hr class="line" style="background-color: #FAB62B;">
                                         <div class="centered">
-                                            <a id="dai-v" class="btn btn-simple text-white"
+                                            <a id="ada-v" class="btn btn-simple text-white"
                                                 style="background-color: #FAB62B;padding: 8px;font-size:15px;"
                                                 href="#contact"></a>
                                         </div>
@@ -412,7 +419,7 @@
                                         <div class="centered">
                                             <a id="usdt-c" class="btn btn-simple text-white"
                                                 style="background-color: #8dc351;padding: 8px;font-size:15px;"
-                                                href="#contact">                                                
+                                                href="#contact">
                                             </a>
                                         </div>
                                     </div>
@@ -465,7 +472,7 @@
         <footer class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
                         <h3 class="title">Redes sociales:</h3>
                         <div class="btn-wrapper profile text-left">
                             {% for social in socials %}
@@ -503,6 +510,20 @@
                             {% endif %}
                             {% endfor %}
                         </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                        <h3 class="title">¿Dónde estamos?</h3>
+                        <p>
+                            {{address.domicilio}}, {{address.city}}
+                        </p>
+                        <p>
+                            {{address.provorstate}}, {{address.country.name}}, {{address.zipcode}}
+                        </p>
+                        <p>
+                            {{address.email}}
+                        </p>
                     </div>
                 </div>
             </div>

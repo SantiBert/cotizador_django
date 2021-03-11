@@ -1,16 +1,23 @@
-def get_coin(self, request, *args, **kwargs):
-    new_coin = Coin()
-    new_coin.btc_c = btc["last"]
-    new_coin.btc_v = btc["open"]
-    new_coin.eth_c = eth["last"]
-    new_coin.eth_v = eth["open"]
-    new_coin.ltc_c = ltc["totalAsk"]
-    new_coin.ltc_v = btc["ask"]
-    new_coin.bch_c = bch["totalAsk"]
-    new_coin.bch_v = btc["ask"]
-    new_coin.dai_c = dai["sesocio"]["totalAsk"]
-    new_coin.dai_v = dai["sesocio"]["ask"]
-    new_coin.usdt_c = usdt["sesocio"]["totalAsk"]
-    new_coin.usdt_v = usdt["sesocio"]["ask"]
-    new_coin.save()
-    return render(request, 'index.html')
+import requests
+import json
+
+headers = {
+    'x-access-token': 'coinranking2deb8db1a653c91b46c8758be21a8c44a77ea3ae23066a54',
+
+}
+
+dolar = requests.get(
+    'https://api.coinranking.com/v2/coin/25W7FG7om', headers=headers).json()
+
+
+"""
+print(' 💵 | compra | venta')
+print('----|--------|-------')
+
+for index, emoji in enumerate(('🟢', '🔵')):
+    compra = json[index]['casa']['compra'][:-1]
+    venta = json[index]['casa']['venta'][:-1]
+
+    print(f" {emoji} |  {compra} | {venta}")
+"""
+print(dolar['data']['coin']['price'])

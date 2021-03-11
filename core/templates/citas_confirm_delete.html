@@ -1,0 +1,12 @@
+{% extends 'baseregistration.html' %}
+{% load static %}
+{% block title %}Borrar {{object.name}} {% endblock %}
+{% block content %}
+<div class="title">
+    <h2>Borrar {{object.name}} </h2>
+</div>
+<form action="" method="post">{% csrf_token %}
+    <p>¿Estás seguro de que quieres borrar <b>"{{object.name}}"</b>?</p>
+    <input type="submit" class="btn btn-primary btn-block" value="Sí, borrar" />
+</form>
+{% endblock %}

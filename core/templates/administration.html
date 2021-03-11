@@ -5,9 +5,28 @@
     <h2 class="text-center">Administración</h2>
 </div>
 <div class="container d-flex justify-content-center aling-items-center h-100">
-    <a href="{% url 'contacList' %}" class="btn btn-danger btn-lg">Contactos</a>
-    <a href="{% url 'socialList' %}" class="btn btn-success btn-lg">Redes Sociales</a>
-    <a href="{% url 'Descrition' %}" class="btn btn-info btn-lg">Parrafo</a>
-    <a href="{% url 'comisionAdmin' %}" class="btn btn-warning btn-lg">Comisiones</a>
+    <div class="row">
+        <div class="col-md-6">
+            <a href="{% url 'contacList' %}" class="btn btn-danger btn-lg">Contactos</a>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url 'socialList' %}" class="btn btn-success btn-lg">Redes Sociales</a>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url 'Descrition' %}" class="btn btn-info btn-lg">Parrafo</a>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url 'comisionAdmin' %}" class="btn btn-warning btn-lg">Comisiones</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'address' %}" class="btn btn-primary btn-lg">Dirección</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'extrasAdmin' %}" class="btn btn-default btn-lg">Extra de divisas</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'notesAdmin' %}" class="btn btn-pinterest btn-lg">Notas</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

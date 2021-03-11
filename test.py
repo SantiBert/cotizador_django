@@ -1,22 +1,12 @@
 import requests
-import json
-from time import sleep
 
+url = "https://cotizaciones-argentinas-por-downtack-com.p.rapidapi.com/cotizaciones"
 
-# compra: ["last"] venta: ["open"]
-btc = requests.get("https://criptoya.com/api/bitstamp/btc").json()
-# compra: ["last"] venta: ["open"]
-eth = requests.get("https://criptoya.com/api/bitstamp/eth").json()
-ltc = requests.get(
-    "https://criptoya.com/api/universalcoins/ltc/usd").json()  # compra: ["totalAsk"] venta: ["ask"]
-bch = requests.get(
-    "https://criptoya.com/api/universalcoins/bch/usd").json()  # compra: ["totalAsk"] venta: ["ask"]
-# compra:["sesocio"]["totalAsk"] venta: ["sesocio"]["ask"]
-dai = requests.get("https://criptoya.com/api/dai/usd/0.1").json()
-usdt = requests.get(
-    "https://criptoya.com/api/usdt/usd/0.1").json()  # compra:["sesocio"]["totalAsk"] venta: ["sesocio"]["ask"]
+headers = {
+    'x-rapidapi-key': "425327872amshc8b8c87476661e8p14dd7ejsn4cb19533aafb",
+    'x-rapidapi-host': "cotizaciones-argentinas-por-downtack-com.p.rapidapi.com"
+}
 
-dolar = requests.get("https://api.bluelytics.com.ar/v2/latest").json()
+response = requests.request("GET", url, headers=headers)
 
-#print("venta: " + str(usdt["sesocio"]["ask"]) +"  compra: " + str(usdt["sesocio"]["totalAsk"]))
-print(dolar)
+print(response.text)

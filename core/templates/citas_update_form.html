@@ -1,11 +1,10 @@
 {% extends 'baseregistration.html' %}
-{% block title %}Editar Comisiones{% endblock %}
+{% block title %}Editar {{object.name}}{% endblock %}
 {% block content %}
 <div class="contact-title">
-    <h2 class="text-center">Editar Comisiones</h2>
+    <h2 class="text-center">Editar {{object.name}}</h2>
 </div>
 <form action="" method="post">{% csrf_token %}
-    <p class="text-primary">Utilizar punto en lugar de comar para indicar los números decimales</p>
     {{form.as_p}}
     <p><input type="submit" class="btn btn-primary btn-block" value="Editar"></p>
 </form>

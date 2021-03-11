@@ -1,0 +1,11 @@
+{% extends 'baseregistration.html' %}
+{% block title %}Nuevo nota{% endblock %}
+{% block content %}
+<div class="contact-title">
+    <h2 class="text-center">Nuevo nota</h2>
+</div>
+<form action="" method="post">{% csrf_token %}
+    {{form.as_p}}
+    <p><input type="submit" class="btn btn-primary btn-block" value="Crear"></p>
+</form>
+{% endblock %}
