@@ -44,6 +44,6 @@ class Citas(models.Model):
 
 class Extras(models.Model):
     id = models.AutoField(primary_key=True)
-    dolar = models.CharField(max_length=150, default="0")
-    euro = models.CharField(max_length=150, default="0")
+    dolar = models.IntegerField(default=0)
+    euro = models.IntegerField(default=0)
     created_date = models.DateTimeField(default=timezone.now)

@@ -104,7 +104,7 @@
             <div class="container">
                 <div class="row row-grid justify-content-between align-items-center text-left">
                     <div class="col-lg-6 col-md-6">
-                        <img src="{% static './assets1/img/LOGOTIPO (3).png'%}" style="padding: 25px;" alt="">
+                        <img src="{% static './assets1/img/LOGOTIPO (3).png'%}" class='d-none d-lg-block' style="padding: 25px;" alt="">
 
                         <p class="text-white mb-3">{{ text.descrip|striptags|safe }}</p>
                         {% for cite in cites %}
@@ -181,7 +181,8 @@
                                         <div class="centered">
                                             <a id="btc-c" class="btn btn-simple text-white"
                                                 style="background-color: #f7931a;padding: 8px;font-size:13px;"
-                                                href="#contact"> 
+                                                href="#contact">
+                                                $ {{cryptoList.btc.1}} ARS                                               
                                             </a>
                                         </div>
                                     </div>
@@ -195,7 +196,7 @@
                                         <div class="centered">
                                             <a id="btc-v" class="btn btn-simple text-white"
                                                 style="background-color: #f7931a;padding: 8px;font-size:13px;" href="
-                                                #contact"></a>
+                                                #contact">$ {{cryptoList.btc.0}} ARS </a>
                                         </div>
                                     </div>
                                 </div>
@@ -230,6 +231,7 @@
                                             <a id="eth-c" class="btn btn-simple text-white"
                                                 style="background-color: #627eea;padding: 8px;font-size:14px;"
                                                 href="#contact">
+                                                $ {{cryptoList.eth.1}} ARS 
                                             </a>
                                         </div>
                                     </div>
@@ -243,7 +245,7 @@
                                         <div class="centered">
                                             <a id="eth-v" class="btn btn-simple text-white"
                                                 style="background-color: #627eea;padding: 8px;font-size:14px;"
-                                                href="#contact"></a>
+                                                href="#contact"> $ {{cryptoList.eth.0}} ARS  </a>
                                         </div>
                                     </div>
                                 </div>
@@ -278,6 +280,7 @@
                                             <a id="ltc-c" class="btn btn-simple text-white"
                                                 style="background-color: #777777;padding: 8px;font-size:15px;"
                                                 href="#contact">
+                                                $ {{cryptoList.ltc.1}} ARS 
                                             </a>
                                         </div>
                                     </div>
@@ -291,7 +294,7 @@
                                         <div class="centered">
                                             <a id="ltc-v" class="btn btn-simple text-white"
                                                 style="background-color: #777777;padding: 8px;font-size:15px;"
-                                                href="#contact"></a>
+                                                href="#contact">$ {{cryptoList.ltc.0}} ARS </a>
                                         </div>
                                     </div>
                                 </div>
@@ -326,6 +329,7 @@
                                             <a id="dot-c" class="btn btn-simple text-white"
                                                 style="background-color: #50ae94;padding: 8px;font-size:15px;"
                                                 href="#contact">
+                                                $ {{cryptoList.dot.1}} ARS 
                                             </a>
                                         </div>
                                     </div>
@@ -339,7 +343,7 @@
                                         <div class="centered">
                                             <a id="dot-v" class="btn btn-simple text-white"
                                                 style="background-color: #50ae94;padding: 8px;font-size:15px;"
-                                                href="#contact"></a>
+                                                href="#contact">$ {{cryptoList.dot.0}} ARS </a>
                                         </div>
                                     </div>
                                 </div>
@@ -373,6 +377,7 @@
                                             <a id="ada-c" class="btn btn-simple text-white"
                                                 style="background-color: #FAB62B;padding: 8px;font-size:15px;"
                                                 href="#contact">
+                                                $ {{cryptoList.ada.1}} ARS 
                                             </a>
                                         </div>
                                     </div>
@@ -386,7 +391,7 @@
                                         <div class="centered">
                                             <a id="ada-v" class="btn btn-simple text-white"
                                                 style="background-color: #FAB62B;padding: 8px;font-size:15px;"
-                                                href="#contact"></a>
+                                                href="#contact">$ {{cryptoList.ada.0}} ARS </a>
                                         </div>
                                     </div>
                                 </div>
@@ -420,6 +425,7 @@
                                             <a id="usdt-c" class="btn btn-simple text-white"
                                                 style="background-color: #8dc351;padding: 8px;font-size:15px;"
                                                 href="#contact">
+                                                $ {{cryptoList.usdt.1}} ARS 
                                             </a>
                                         </div>
                                     </div>
@@ -433,7 +439,7 @@
                                         <div class="centered">
                                             <a id="usdt-v" class="btn btn-simple text-white"
                                                 style="background-color: #8dc351;padding: 8px;font-size:15px;"
-                                                href="#contact"></a>
+                                                href="#contact">$ {{cryptoList.ustd.0}} ARS </a>
                                         </div>
                                     </div>
                                 </div>

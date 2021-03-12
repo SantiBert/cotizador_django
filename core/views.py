@@ -11,7 +11,7 @@ from .forms import DescriptionForm, ComisionForm, CitasForm, ExtrasForm
 from contac.models import Contac
 from social.models import Social
 from domicilio.models import Address
-from .signals import create_coin, dolar
+from .signals import create_coin, dolar, cryptoList
 
 
 class IndexView(TemplateView):
@@ -45,6 +45,7 @@ class IndexView(TemplateView):
         context['cites'] = cites
         context['dolar'] = dolar
         context['extra'] = extra[0]
+        context['cryptoList'] = cryptoList
         # Contexto de crytos
         return context
 
@@ -53,14 +54,14 @@ class JavascripView(View):
     def get(self, request, *args, **kwargs):
         all_coin = Coin.objects.all()
         comisions = Comision.objects.all()
-        extras = Extras.objects.all().order_by('-created_date')
+        extras_divisas = Extras.objects.all().order_by('-created_date')
+        extra = extras_divisas[0]
         coin = all_coin[0]
         comision = comisions[0]
-        extra = extras[0]
         context = {
             'coin': coin,
             'comision': comision,
-            'extra': extra
+            'extra': extra,
         }
         return render(request, 'includes/javascript.html', context)
 
@@ -164,14 +165,3 @@ class CitasDeleteView(DeleteView):
     template_name = 'citas_confirm_delete.html'
     template_name_suffix = '_update_form'
     success_url = reverse_lazy('notesAdmin')
-
-
-"""
-cryptoDict = {"btc": (float(coin.btc) * (dolar + float(extra[0].dolar)), (float(coin.btc) * (dolar + float(extra[0].dolar))),
-                      "eth": (float(coin.eth) * (dolar + float(extra[0].dolar)), (float(coin.btc) * (dolar + float(extra[0].dolar))),
-                      "ltc": (float(coin.ltc) * (dolar + float(extra[0].dolar)), (float(coin.btc) * (dolar + float(extra[0].dolar))),
-                      "dot": (float(coin.dot) * (dolar + float(extra[0].dolar)), (float(coin.btc) * (dolar + float(extra[0].dolar))),
-                      "ada": (float(coin.ada) * (dolar + float(extra[0].dolar)), (float(coin.btc) * (dolar + float(extra[0].dolar))),
-                      "usdt": (float(coin.usdt) * (dolar + float(extra[0].dolar)),(float(coin.btc) * (dolar + float(extra[0].dolar))),
-                      }
-"""
