@@ -28,10 +28,10 @@ class IndexView(TemplateView):
         cites = Citas.objects.all().order_by('-created_date')
         extra = Extras.objects.all()
         now = timezone.now()
-        minus = timedelta(minutes=10)
+        minus = now.timestamp()
         if coin:
             coin = coin[0]
-            if (coin.created_date - now) > minus:
+            if (minus - ((coin.created_date).timestamp())) > 600:
                 context['coin'] = create_coin()
             else:
                 context['coin'] = coin
