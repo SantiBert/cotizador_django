@@ -11,7 +11,8 @@ from .forms import DescriptionForm, ComisionForm, CitasForm, ExtrasForm
 from contac.models import Contac
 from social.models import Social
 from domicilio.models import Address
-from .signals import create_coin, dolar, cryptoList
+from .signals import create_coin, dolar, update_coin
+from .utils import cryptoList
 
 
 class IndexView(TemplateView):
@@ -32,7 +33,7 @@ class IndexView(TemplateView):
         if coin:
             coin = coin[0]
             if (minus - ((coin.created_date).timestamp())) > 600:
-                context['coin'] = create_coin()
+                context['coin'] = update_coin(coin)
             else:
                 context['coin'] = coin
         else:
