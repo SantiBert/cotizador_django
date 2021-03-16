@@ -11,8 +11,8 @@ from .forms import DescriptionForm, ComisionForm, CitasForm, ExtrasForm
 from contac.models import Contac
 from social.models import Social
 from domicilio.models import Address
-from .signals import create_coin, dolar, update_coin
-from .utils import cryptoList
+from .signals import create_coin,  update_coin
+from .utils import cryptoList, dolar
 
 
 class IndexView(TemplateView):
