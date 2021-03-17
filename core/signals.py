@@ -38,11 +38,12 @@ def create_coin():
 
 def update_coin():
     coin = Coin.objects.update(
-        btc=btc['data']['coin']['price'],
-        eth=eth['data']['coin']['price'],
-        ltc=ltc['data']['coin']['price'],
-        dot=dot['data']['coin']['price'],
-        ada=dot['data']['coin']['price'],
-        usdt=usdt['data']['coin']['price'],
+        btc="{:.2f}".format(float(btc['data']['coin']['price'])),
+        eth="{:.2f}".format(float(eth['data']['coin']['price'])),
+        ltc="{:.2f}".format(float(ltc['data']['coin']['price'])),
+        dot="{:.2f}".format(float(dot['data']['coin']['price'])),
+        ada="{:.2f}".format(float(dot['data']['coin']['price'])),
+        usdt="{:.2f}".format(float(usdt['data']['coin']['price'])),
         created_date=timezone.now()
     )
+    return coin

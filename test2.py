@@ -7,7 +7,7 @@ headers = {
 }
 
 dolar = requests.get(
-    'https://api.coinranking.com/v2/coin/25W7FG7om', headers=headers).json()
+    'https://api.coinranking.com/v2/coin/Qwsogvtv82FCd', headers=headers).json()
 
 
 """
@@ -19,5 +19,9 @@ for index, emoji in enumerate(('🟢', '🔵')):
     venta = json[index]['casa']['venta'][:-1]
 
     print(f" {emoji} |  {compra} | {venta}")
+
+
 """
-print(dolar['data']['coin']['price'])
+
+i = "{:.2f}".format(float(dolar['data']['coin']['price']))
+print(i)

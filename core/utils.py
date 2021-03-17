@@ -3,19 +3,24 @@ import requests
 import json
 
 dolar_value = requests.get('https://api.bluelytics.com.ar/v2/latest').json()
+extra = Extras.objects.all()
 dolar = float(dolar_value['blue']['value_sell'])
 
+fulldolar = float(dolar + extra[0].dolar)
 coins = Coin.objects.all().order_by('-created_date')
-extra = Extras.objects.all()
+
 comis = Comision.objects.all()
-comi = comis[0]
+sell = 1 + (float(comis[0].sell)/100)
+buy = 1 + (float(comis[0].buy)/100)
 coin = coins[0]
 
 
-cryptoList = {"btc": ((float(coin.btc) * (dolar + extra[0].dolar)) * (1 + float(comi.sell)), (float(coin.btc) * (dolar + extra[0].dolar)) * (1 + float(comi.buy))),
-              "eth": ((float(coin.eth) * (dolar + extra[0].dolar)) * (1 + float(comi.sell)), (float(coin.btc) * (dolar + extra[0].dolar)) * (1 + float(comi.buy))),
-              "ltc": ((float(coin.ltc) * (dolar + extra[0].dolar)) * (1 + float(comi.sell)), (float(coin.btc) * (dolar + extra[0].dolar)) * (1 + float(comi.buy))),
-              "dot": ((float(coin.dot) * (dolar + extra[0].dolar)) * (1 + float(comi.sell)), (float(coin.btc) * (dolar + extra[0].dolar)) * (1 + float(comi.buy))),
-              "ada": ((float(coin.ada) * (dolar + extra[0].dolar)) * (1 + float(comi.sell)), (float(coin.btc) * (dolar + extra[0].dolar)) * (1 + float(comi.buy))),
-              "usdt": ((float(coin.usdt) * (dolar + extra[0].dolar)) * (1 + float(comi.sell)), (float(coin.btc) * (dolar + extra[0].dolar)) * (1 + float(comi.buy))),
+cryptoList = {"btc": ("{:.2f}".format((float(coin.btc) * fulldolar) * sell), "{:.2f}".format((float(coin.btc) * fulldolar) * buy)),
+              "eth": ("{:.2f}".format((float(coin.eth) * fulldolar) * sell), "{:.2f}".format((float(coin.btc) * fulldolar) * buy)),
+              "ltc": ("{:.2f}".format((float(coin.ltc) * fulldolar) * sell), "{:.2f}".format((float(coin.btc) * fulldolar) * buy)),
+              "dot": ("{:.2f}".format((float(coin.dot) * fulldolar) * sell), "{:.2f}".format((float(coin.btc) * fulldolar) * buy)),
+              "ada": ("{:.2f}".format((float(coin.ada) * fulldolar) * sell), "{:.2f}".format((float(coin.btc) * fulldolar) * buy)),
+              "usdt": ("{:.2f}".format((float(coin.usdt) * fulldolar) * sell), "{:.2f}".format((float(coin.btc) * fulldolar) * buy)),
               }
+
+print(float(coin.btc) * fulldolar)
