@@ -16,9 +16,11 @@ coin = coins[0]
 
 
 cryptoList = {"btc": ("{:.2f}".format((float(coin.btc) * fulldolar) * sell), "{:.2f}".format((float(coin.btc) * fulldolar) * buy)),
-              "eth": ("{:.2f}".format((float(coin.eth) * fulldolar) * sell), "{:.2f}".format((float(coin.btc) * fulldolar) * buy)),
-              "ltc": ("{:.2f}".format((float(coin.ltc) * fulldolar) * sell), "{:.2f}".format((float(coin.btc) * fulldolar) * buy)),
-              "dot": ("{:.2f}".format((float(coin.dot) * fulldolar) * sell), "{:.2f}".format((float(coin.btc) * fulldolar) * buy)),
-              "ada": ("{:.2f}".format((float(coin.ada) * fulldolar) * sell), "{:.2f}".format((float(coin.btc) * fulldolar) * buy)),
-              "usdt": ("{:.2f}".format((float(coin.usdt) * fulldolar) * sell), "{:.2f}".format((float(coin.btc) * fulldolar) * buy)),
+              "eth": ("{:.2f}".format((float(coin.eth) * fulldolar) * sell), "{:.2f}".format((float(coin.eth) * fulldolar) * buy)),
+              "ltc": ("{:.2f}".format((float(coin.ltc) * fulldolar) * sell), "{:.2f}".format((float(coin.ltc) * fulldolar) * buy)),
+              "dot": ("{:.2f}".format((float(coin.dot) * fulldolar) * sell), "{:.2f}".format((float(coin.dot) * fulldolar) * buy)),
+              "ada": ("{:.2f}".format((float(coin.ada) * fulldolar) * sell), "{:.2f}".format((float(coin.ada) * fulldolar) * buy)),
+              "usdt": ("{:.2f}".format((float(coin.usdt) * fulldolar) * sell), "{:.2f}".format((float(coin.usdt) * fulldolar) * buy)),
               }
+
+print(cryptoList['dot'])
