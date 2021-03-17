@@ -23,4 +23,4 @@ cryptoList = {"btc": ("{:.2f}".format((float(coin.btc) * fulldolar) * sell), "{:
               "usdt": ("{:.2f}".format((float(coin.usdt) * fulldolar) * sell), "{:.2f}".format((float(coin.usdt) * fulldolar) * buy)),
               }
 
-print(cryptoList['dot'])
+print(cryptoList['usdt'])
