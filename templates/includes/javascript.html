@@ -127,15 +127,18 @@
             let channelName = "live_trades_" + element + "usd";
             if (data.channel == channelName) {
                 if (data.event == "trade")
+                {
                     crypto_prices[element] = data.data.price;
                 let sellValue = GetResult(data.data.price, sellPercent);
                 let buyValue = GetResult(data.data.price, buyPercent);
                 ChangeData(element, sellValue, buyValue);
+                }                
             }
         }
         );
     };
 
+    
     function ChangeData(coinName, sellValue, buyValue) {
         let sellElement = coinName + "-c";
         let buyElement = coinName + "-v";
