@@ -33,7 +33,10 @@ class IndexView(TemplateView):
         if coin:
             coin = coin[0]
             if (minus - ((coin.created_date).timestamp())) > 600:
-                context['coin'] = update_coin()
+                try:
+                    context['coin'] = update_coin()
+                except:
+                    pass
             else:
                 context['coin'] = coin
         else:
