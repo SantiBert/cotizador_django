@@ -484,32 +484,32 @@
                             {% for social in socials %}
                             <!--Instagram-->
                             {% if social.name == 'Instagram' and social.link %}
-                            <a target="_blank" href="https://www.instagram.com/cryptoway.broker/"
+                            <a target="_blank" href="{{social.link}}"
                                 class="btn btn-icon btn-neutral btn-round btn-simple" data-toggle="tooltip"
                                 data-original-title="Siguenos">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <!--Facebook-->
                             {% elif social.name == 'Facebook' and social.link %}
-                            <a target="_blank" href="#" class="btn btn-icon btn-neutral btn-round btn-simple"
+                            <a target="_blank" href="{{social.link}}" class="btn btn-icon btn-neutral btn-round btn-simple"
                                 data-toggle="tooltip" data-original-title="Like en Face">
                                 <i class="fab fa-facebook-square"></i>
                             </a>
                             <!--Twiter-->
                             {% elif social.name == 'Twiter' and social.link %}
-                            <a target="_blank" href="#" class="btn btn-icon btn-neutral btn-round btn-simple"
+                            <a target="_blank" href="{{social.link}}" class="btn btn-icon btn-neutral btn-round btn-simple"
                                 data-toggle="tooltip">
                                 <i class="fab fa-twitter"></i>
                             </a>
                             <!--Youtube-->
                             {% elif social.name == 'Youtube' and social.link %}
-                            <a target="_blank" href="#" class="btn btn-icon btn-neutral btn-round btn-simple"
+                            <a target="_blank" href="{{social.link}}" class="btn btn-icon btn-neutral btn-round btn-simple"
                                 data-toggle="tooltip">
                                 <i class="fab fa-youtube"></i>
                             </a>
                             <!--Telegram-->
                             {% elif social.name == 'Telegram' and social.link %}
-                            <a target="_blank" href="#" class="btn btn-icon btn-neutral btn-round btn-simple"
+                            <a target="_blank" href="{{social.link}}" class="btn btn-icon btn-neutral btn-round btn-simple"
                                 data-toggle="tooltip">
                                 <i class="fab fa-telegram"></i>
                             </a>
